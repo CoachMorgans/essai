@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simplice KOUAMÉ — L'Architecte d'une Révolution Silencieuse</title>
+<style>
+:root{--g1:#0A2E1A;--vert:#1DB954;--vc:#2ECC71;--vp:#A8F0C4;--or:#D4AF37;--oc:#F0C840;--ora:#FF6B00;--orc:#FF8C3A;--bl:#FFFFFF;--bof:#F0FAF4;--bg:#060F08;--cd:#0D2015;--cd2:#0F2918;--br:rgba(29,185,84,.18);--bor:rgba(212,175,55,.25);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--bof);overflow-x:hidden;min-height:100vh;line-height:1.7;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--vert),var(--or));border-radius:2px}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(29,185,84,.15) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(255,107,0,.08) 0%,transparent 50%),linear-gradient(180deg,var(--bg) 0%,#071A0E 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,185,84,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(29,185,84,.04) 1px,transparent 1px);background-size:48px 48px;animation:gShift 20s linear infinite}
+@keyframes gShift{to{transform:translateY(48px)}}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:oFloat 8s ease-in-out infinite}
+.orb1{width:400px;height:400px;background:rgba(29,185,84,.08);top:-100px;left:-100px}
+.orb2{width:300px;height:300px;background:rgba(255,107,0,.06);bottom:50px;right:-50px;animation-delay:3s}
+@keyframes oFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+.hbadge{position:relative;display:inline-flex;align-items:center;gap:8px;background:rgba(29,185,84,.1);border:1px solid rgba(29,185,84,.3);border-radius:100px;padding:6px 18px;font-size:.75rem;letter-spacing:.06em;color:var(--vc);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:sUp .8s ease .2s forwards}
+.hbadge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--vc);box-shadow:0 0 8px var(--vc);animation:blink 1.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hname{font-size:clamp(2.4rem,7vw,5rem);font-weight:300;line-height:1;color:var(--bl);opacity:0;animation:sUp .8s ease .4s forwards;margin-bottom:12px}
+.hname span{display:block;font-weight:700;background:linear-gradient(135deg,var(--vc) 0%,var(--oc) 50%,var(--orc) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:gFlow 4s ease-in-out infinite}
+@keyframes gFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.htag{font-size:clamp(.95rem,2vw,1.15rem);font-style:italic;color:rgba(255,255,255,.5);max-width:640px;margin:0 auto 36px;opacity:0;animation:sUp .8s ease .6s forwards;line-height:1.8}
+.hpills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:48px;opacity:0;animation:sUp .8s ease .8s forwards}
+.pill{padding:7px 18px;border-radius:100px;font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.pv{background:rgba(29,185,84,.15);border:1px solid rgba(29,185,84,.4);color:var(--vc)}
+.po{background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.35);color:var(--oc)}
+.pr{background:rgba(255,107,0,.12);border:1px solid rgba(255,107,0,.35);color:var(--orc)}
+.hstats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:960px;width:100%;opacity:0;animation:sUp .8s ease 1s forwards}
+@media(max-width:600px){.hstats{grid-template-columns:repeat(2,1fr)}}
+.hs{background:rgba(13,32,21,.8);border:1px solid var(--br);border-radius:16px;padding:20px 16px;backdrop-filter:blur(20px);text-align:center;transition:transform .3s,border-color .3s}
+.hs:hover{transform:translateY(-4px);border-color:rgba(29,185,84,.4)}
+.hsn{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;background:linear-gradient(135deg,var(--vc),var(--oc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:4px}
+.hsl{font-size:.68rem;color:rgba(255,255,255,.4);font-weight:500;line-height:1.4;text-transform:uppercase;letter-spacing:.04em}
+@keyframes sUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.ticker{background:rgba(29,185,84,.06);border-top:1px solid var(--br);border-bottom:1px solid var(--br);padding:10px 0;overflow:hidden}
+.ticker-inner{display:flex;gap:64px;animation:tick 30s linear infinite;width:max-content;white-space:nowrap}
+.ti{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(29,185,84,.7);display:flex;align-items:center;gap:8px}
+.ti::before{content:'◆';font-size:.4rem;color:var(--or);flex-shrink:0}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.nav-wrap{position:sticky;top:0;z-index:900;background:rgba(6,15,8,.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--br)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 8px;display:flex;overflow-x:auto;scrollbar-width:thin;scrollbar-color:rgba(29,185,84,.3) transparent;gap:0}
+.nav-inner::-webkit-scrollbar{height:3px}
+.ntab{flex-shrink:0;font-size:.6rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.4);padding:14px 9px;cursor:pointer;border:none;background:transparent;position:relative;transition:color .25s;white-space:nowrap}
+.ntab::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:2px;background:linear-gradient(90deg,var(--vert),var(--or));border-radius:2px;transition:left .25s,right .25s}
+.ntab.active,.ntab:hover{color:var(--vc)}
+.ntab.active::after,.ntab:hover::after{left:8%;right:8%}
+.sec{display:none;max-width:1200px;margin:0 auto;padding:56px 24px 80px}
+.sec.active{display:block;animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sh{text-align:center;margin-bottom:48px}
+.sh-eye{display:inline-block;font-size:.63rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--vc);background:rgba(29,185,84,.1);border:1px solid rgba(29,185,84,.25);border-radius:100px;padding:4px 14px;margin-bottom:16px}
+.sh-t{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--bl);line-height:1.1;margin-bottom:12px;letter-spacing:-.02em}
+.sh-t em{font-style:normal;background:linear-gradient(135deg,var(--vc),var(--oc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sh-line{width:60px;height:3px;background:linear-gradient(90deg,var(--vert),var(--or),var(--ora));border-radius:2px;margin:0 auto}
+.sh-sub{font-style:italic;font-size:.95rem;color:rgba(255,255,255,.45);max-width:600px;margin:16px auto 0;line-height:1.7}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--cd);border:1px solid var(--br);border-radius:20px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;position:relative}
+.card:hover{transform:translateY(-6px);border-color:rgba(29,185,84,.35);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.ctop{height:3px;background:linear-gradient(90deg,var(--vert),var(--oc),var(--ora))}
+.cp{padding:24px 28px}
+.ceye{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--vc);margin-bottom:10px;display:block}
+.ctit{font-size:1.1rem;font-weight:700;color:var(--bl);line-height:1.3;margin-bottom:6px}
+.csub{font-size:.82rem;color:rgba(255,255,255,.4);font-style:italic;margin-bottom:16px}
+.cbody p{font-size:.87rem;line-height:1.75;color:rgba(255,255,255,.72);margin-bottom:10px}
+.hl{background:rgba(29,185,84,.07);border-left:3px solid var(--vc);border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0}
+.hl p{font-style:italic;font-size:.92rem!important;color:rgba(240,250,244,.85)!important;margin:0!important}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px}
+.tg{background:rgba(29,185,84,.12);border:1px solid rgba(29,185,84,.3);color:var(--vc)}
+.to{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);color:var(--oc)}
+.tor{background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.3);color:var(--orc)}
+.tw{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6)}
+.quote{position:relative;background:linear-gradient(135deg,rgba(29,185,84,.06),rgba(212,175,55,.04));border:1px solid var(--bor);border-radius:20px;padding:40px 44px;margin:36px 0;text-align:center}
+.quote::before{content:'❝';position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:2.5rem;color:var(--oc);background:var(--bg);padding:0 12px;line-height:1}
+.quote blockquote{font-style:italic;font-size:clamp(1rem,2.5vw,1.3rem);color:var(--bof);line-height:1.7;margin-bottom:14px}
+.qattr{font-size:.62rem;font-weight:700;letter-spacing:.2em;color:var(--or);text-transform:uppercase}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:32px 0}
+.sbox{background:var(--cd);border:1px solid var(--br);border-radius:16px;padding:24px 20px;text-align:center;position:relative;overflow:hidden;transition:transform .3s}
+.sbox:hover{transform:translateY(-4px)}
+.sbox::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--vert),var(--or))}
+.snum{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;background:linear-gradient(135deg,var(--vc),var(--oc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:6px}
+.slbl{font-size:.62rem;font-weight:600;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;line-height:1.4}
+.tbl{width:100%;border-collapse:collapse;font-size:.82rem;border-radius:12px;overflow:hidden;border:1px solid var(--br)}
+.tbl thead tr{background:linear-gradient(90deg,rgba(29,185,84,.2),rgba(212,175,55,.1))}
+.tbl th{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vc);padding:14px 16px;text-align:left}
+.tbl tbody tr{border-bottom:1px solid rgba(29,185,84,.07);transition:background .2s}
+.tbl tbody tr:hover{background:rgba(29,185,84,.04)}
+.tbl td{padding:11px 16px;color:rgba(255,255,255,.75);line-height:1.5}
+.tbl td:first-child{color:rgba(255,255,255,.9);font-weight:600}
+.thl td{color:var(--vc)!important;font-weight:700!important}
+.tl-item{display:flex;gap:16px;margin-bottom:20px}
+.tl-dot{width:10px;height:10px;min-width:10px;border-radius:50%;background:var(--vc);margin-top:5px;box-shadow:0 0 10px rgba(29,185,84,.5)}
+.tl-date{font-size:.62rem;font-weight:700;letter-spacing:.1em;color:var(--orc);margin-bottom:4px;display:block;text-transform:uppercase}
+.tl-txt{font-size:.85rem;line-height:1.65;color:rgba(255,255,255,.75)}
+.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+@media(max-width:768px){.bio-grid{grid-template-columns:1fr}}
+.bc{background:var(--cd2);border:1px solid var(--br);border-radius:20px;padding:28px}
+.bc h3{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--vc);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--br)}
+.acc{background:var(--cd);border:1px solid var(--br);border-radius:16px;margin-bottom:10px;overflow:hidden;transition:border-color .3s}
+.acc.open{border-color:rgba(29,185,84,.35)}
+.acc-h{display:flex;align-items:center;gap:16px;padding:18px 22px;cursor:pointer;user-select:none}
+.acc-h:hover,.acc.open .acc-h{background:rgba(29,185,84,.04)}
+.acc-n{font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--vc),var(--oc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;min-width:44px;line-height:1}
+.acc-i{flex:1}
+.acc-i h4{font-size:.92rem;font-weight:700;color:var(--bl);margin-bottom:3px}
+.acc-i span{font-size:.76rem;color:rgba(255,255,255,.4);font-style:italic}
+.acc-arr{color:var(--vc);font-size:1rem;transition:transform .3s}
+.acc.open .acc-arr{transform:rotate(180deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.acc.open .acc-body{max-height:2000px}
+.acc-inner{padding:20px 24px;font-size:.86rem;line-height:1.75;color:rgba(255,255,255,.75);border-top:1px solid var(--br)}
+.acc-inner p{margin-bottom:10px}
+.acc-inner strong{color:var(--vc)}
+.mrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:600px){.mrow{grid-template-columns:1fr}}
+.mod{border-radius:14px;padding:18px}
+.m1{background:rgba(255,107,0,.06);border:1px solid rgba(255,107,0,.2)}
+.m2{background:rgba(29,185,84,.06);border:1px solid rgba(29,185,84,.2)}
+.m3{background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.2)}
+.meye{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;display:block}
+.m1 .meye{color:var(--orc)}.m2 .meye{color:var(--vc)}.m3 .meye{color:var(--oc)}
+.mod h4{font-size:.92rem;font-weight:700;color:var(--bl);margin-bottom:8px}
+.mod p{font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.6)}
+.notice{background:rgba(29,185,84,.05);border:1px solid rgba(29,185,84,.2);border-left:4px solid var(--vc);border-radius:0 16px 16px 0;padding:28px 32px;margin-bottom:32px}
+.notice h4{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--vc);margin-bottom:12px}
+.notice p{font-size:.86rem;line-height:1.75;color:rgba(255,255,255,.72);margin-bottom:10px}
+.notice p:last-child{margin-bottom:0}
+.mission{background:linear-gradient(135deg,rgba(29,185,84,.08),rgba(212,175,55,.05));border:1px solid var(--bor);border-radius:20px;padding:32px 36px;margin:32px 0;text-align:center}
+.mission p{font-style:italic;font-size:1rem;line-height:1.85;color:rgba(255,255,255,.8);margin-bottom:10px}
+.mission strong{color:var(--vc);font-style:normal}
+.prow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+@media(max-width:640px){.prow{grid-template-columns:1fr}}
+.pb{background:rgba(29,185,84,.06);border:1px solid var(--br);border-radius:14px;padding:18px;text-align:center}
+.pb h5{font-size:.7rem;font-weight:700;letter-spacing:.12em;color:var(--vc);text-transform:uppercase;margin-bottom:8px}
+.pb p{font-size:.82rem;line-height:1.6;color:rgba(255,255,255,.65)}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:16px}
+.bcard{background:var(--cd);border:1px solid var(--br);border-radius:18px;padding:22px;transition:transform .3s,border-color .3s;position:relative;overflow:hidden}
+.bcard:hover{transform:translateY(-4px);border-color:rgba(29,185,84,.35)}
+.brk{font-size:3rem;font-weight:800;color:rgba(29,185,84,.06);position:absolute;top:8px;right:14px;line-height:1}
+.bpole{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--vc);margin-bottom:6px;display:block}
+.bname{font-size:.95rem;font-weight:800;color:var(--bl);margin-bottom:4px}
+.btit{font-size:.78rem;color:var(--oc);margin-bottom:12px;font-style:italic}
+.bmis{font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.65)}
+.bkpi{display:inline-flex;align-items:center;gap:6px;background:rgba(29,185,84,.08);border:1px solid rgba(29,185,84,.2);border-radius:100px;padding:4px 12px;font-size:.62rem;color:var(--vc);margin-top:10px}
+.allcard{background:var(--cd);border:1px solid var(--br);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.allcard:hover{transform:translateY(-4px);border-color:rgba(29,185,84,.35)}
+.all-rk{font-size:4rem;font-weight:800;color:rgba(29,185,84,.08);position:absolute;top:10px;right:18px;line-height:1}
+.allcard h3{font-size:1rem;font-weight:700;color:var(--bl);margin-bottom:10px}
+.allcard p{font-size:.84rem;line-height:1.7;color:rgba(255,255,255,.65);margin-bottom:14px}
+.gain{display:inline-flex;align-items:center;gap:6px;background:rgba(29,185,84,.1);border:1px solid rgba(29,185,84,.3);border-radius:100px;padding:5px 14px;font-size:.62rem;font-weight:700;color:var(--vc);text-transform:uppercase;letter-spacing:.08em}
+.gain::before{content:'↑'}
+.srow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}
+.si{background:var(--cd2);border:1px solid var(--br);border-radius:14px;padding:16px;text-align:center}
+.spct{font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,var(--vc),var(--oc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:4px}
+.slb2{font-size:.7rem;color:rgba(255,255,255,.55);line-height:1.4}
+/* VIDEO CARDS */
+.vcard{background:var(--cd);border:1px solid var(--br);border-radius:20px;overflow:hidden;transition:transform .3s,border-color .3s}
+.vcard:hover{transform:translateY(-5px);border-color:rgba(29,185,84,.4)}
+.vthumb{position:relative;width:100%;padding-top:56.25%;overflow:hidden}
+.vthumb a{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-decoration:none;background:linear-gradient(135deg,rgba(10,46,26,.8),rgba(6,15,8,.9))}
+.vplay{width:60px;height:60px;border-radius:50%;background:rgba(255,0,0,.25);border:2px solid #FF4444;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform .3s,background .3s}
+.vthumb a:hover .vplay{transform:scale(1.12);background:rgba(255,0,0,.45)}
+.vlbl{font-size:.58rem;font-weight:700;letter-spacing:.15em;color:var(--vc);text-transform:uppercase;text-align:center;padding:0 14px;line-height:1.4}
+.vmeta{padding:16px 20px}
+.vdate{font-size:.6rem;font-weight:700;letter-spacing:.12em;color:var(--orc);display:block;margin-bottom:6px;text-transform:uppercase}
+.vtit{font-size:.88rem;font-weight:700;color:var(--bl);line-height:1.35;margin-bottom:8px}
+.vanalyse{font-size:.78rem;line-height:1.65;color:rgba(255,255,255,.6);margin-bottom:10px;font-style:italic;border-left:2px solid rgba(29,185,84,.3);padding-left:10px}
+.vviews{font-size:.75rem;color:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.vviews strong{font-size:1rem;color:var(--vc);font-weight:800}
+.vbtn{display:inline-flex;align-items:center;gap:6px;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FF4444;text-decoration:none;border:1px solid rgba(255,68,68,.3);padding:6px 14px;border-radius:100px;transition:all .3s}
+.vbtn:hover{background:rgba(255,68,68,.1);border-color:rgba(255,68,68,.6)}
+/* DOWNLOAD */
+.dl-wrap{max-width:780px;margin:0 auto}
+.dl-box{background:var(--cd);border:1px solid var(--br);border-radius:24px;padding:36px 32px;position:relative;overflow:hidden}
+.dl-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--vert),var(--oc),var(--ora))}
+.flbl{display:block;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:6px}
+.finput{width:100%;background:rgba(29,185,84,.06);border:1px solid rgba(29,185,84,.2);color:var(--bof);font-size:.86rem;padding:12px 16px;border-radius:10px;margin-bottom:12px;outline:none;transition:border-color .3s}
+.finput:focus{border-color:var(--vc);box-shadow:0 0 0 3px rgba(29,185,84,.1)}
+.fsel{width:100%;background:rgba(29,185,84,.08);border:1px solid rgba(29,185,84,.25);color:var(--vc);font-size:.82rem;font-weight:600;padding:13px 16px;border-radius:10px;cursor:pointer;margin-bottom:16px;outline:none;appearance:none}
+.fsel option{background:#0D2015;color:var(--bof)}
+.qrbox{display:flex;flex-direction:column;align-items:center;gap:12px;background:rgba(255,255,255,.97);border-radius:16px;padding:20px;margin:14px 0}
+.qrbox img{width:140px;height:140px;border-radius:10px;border:3px solid var(--vert)}
+.qrnote{font-size:.8rem;line-height:1.6;color:#1A3A22;text-align:center;max-width:240px}
+.qramt{font-size:1.4rem;font-weight:800;color:#0A2E1A;display:block;text-align:center}
+.optin{background:rgba(29,185,84,.06);border:1px solid rgba(29,185,84,.15);border-radius:12px;padding:16px;margin-bottom:16px}
+.oprow{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.82rem;line-height:1.6;color:rgba(255,255,255,.75);margin-bottom:8px}
+.oprow:last-child{margin-bottom:0}
+.oprow input{margin-top:3px;accent-color:var(--vc);width:14px;height:14px;flex-shrink:0}
+.btn-main{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;font-size:.73rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:linear-gradient(135deg,var(--vert) 0%,var(--vc) 50%,var(--vert) 100%);background-size:200%;border:none;padding:15px 28px;border-radius:100px;cursor:pointer;transition:background-position .4s,transform .2s,box-shadow .3s;box-shadow:0 4px 24px rgba(29,185,84,.3)}
+.btn-main:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 8px 32px rgba(29,185,84,.45)}
+.btn-wa{background:linear-gradient(135deg,#128C7E 0%,#25D366 50%,#128C7E 100%)!important;color:#fff!important}
+.btn-sec{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vc);border:1px solid rgba(29,185,84,.35);background:transparent;padding:12px 24px;border-radius:100px;cursor:pointer;transition:all .3s;width:100%;margin-top:8px;text-decoration:none}
+.btn-sec:hover{background:rgba(29,185,84,.1);border-color:var(--vc)}
+.infobox{background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.2);border-left:4px solid var(--oc);border-radius:0 12px 12px 0;padding:14px 18px;margin:16px 0;font-size:.84rem;line-height:1.7;color:rgba(255,255,255,.7)}
+.infobox strong{color:var(--oc)}
+.ok-box{text-align:center;padding:16px 0}
+.ok-icon{font-size:3rem;display:block;margin-bottom:14px}
+.ok-title{font-size:1.2rem;font-weight:800;color:var(--bl);margin-bottom:8px}
+.ok-desc{font-size:.84rem;line-height:1.75;color:rgba(255,255,255,.65);margin-bottom:18px}
+.ok-vip{background:rgba(29,185,84,.08);border:1px solid rgba(29,185,84,.2);border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:.82rem;line-height:1.65;color:rgba(255,255,255,.7)}
+.ok-vip strong{color:var(--vc)}
+/* DOC MODAL */
+#docModal{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px}
+.doc-wrap{background:#fff;border-radius:16px;max-width:680px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.doc-acts{display:flex;gap:10px;justify-content:flex-end;padding:14px 20px;background:#f8fdf9;border-top:1px solid #ddeee4;border-radius:0 0 16px 16px;flex-wrap:wrap}
+.doc-acts button{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:10px 20px;border-radius:100px;cursor:pointer;border:none;transition:all .3s}
+.btn-print{background:#1A7A3C;color:#fff}.btn-print:hover{background:#145E30}
+.btn-close-doc{background:#f0f0f0;color:#555}.btn-close-doc:hover{background:#e0e0e0}
+.doc-sheet{padding:36px 44px;font-family:Georgia,serif;color:#111}
+.doc-hdr{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #1A7A3C;padding-bottom:18px;margin-bottom:24px;flex-wrap:wrap;gap:16px}
+.dlgt{font-size:1.3rem;font-weight:800;color:#0A2E1A;letter-spacing:.08em}
+.dlgs{font-size:.72rem;color:#3A7A52;letter-spacing:.06em;font-style:italic}
+.dtb{background:#0A2E1A;color:#fff;padding:10px 22px;border-radius:8px;text-align:right}
+.dtbl{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#A8F0C4;display:block}
+.dtbn{font-size:1.1rem;font-weight:800;color:#F0C840}
+.doc-meta{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:22px}
+.dmb{background:#f4fbf6;border:1px solid #c8e8d4;border-radius:10px;padding:14px 16px}
+.dmb h4{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#2ECC71;margin-bottom:10px}
+.dmb p{font-size:.82rem;line-height:1.65;color:#222}
+.dmb strong{color:#0A2E1A}
+.doc-items{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:.83rem}
+.doc-items thead tr{background:#0A2E1A}
+.doc-items th{color:#A8F0C4;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;text-align:left}
+.doc-items tbody tr:nth-child(even){background:#f4fbf6}
+.doc-items td{padding:10px 14px;color:#222;border-bottom:1px solid #ddeee4}
+.doc-items td:last-child{text-align:right;font-weight:700;color:#0A2E1A}
+.dtot-wrap{display:flex;justify-content:flex-end;margin-bottom:20px}
+.dtot{background:#0A2E1A;color:#fff;border-radius:10px;padding:14px 24px;min-width:220px}
+.dtr{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:5px;color:rgba(255,255,255,.75)}
+.dtr:last-child{margin-bottom:0;font-size:1rem;font-weight:800;color:#F0C840;padding-top:8px;border-top:1px solid rgba(255,255,255,.2)}
+.doc-qr{background:#f4fbf6;border:1px solid #c8e8d4;border-radius:12px;padding:18px 20px;margin-bottom:20px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.doc-qr img{width:110px;height:110px;border-radius:8px;border:3px solid #1A7A3C;flex-shrink:0}
+.dqi{flex:1;min-width:180px}
+.dqi h4{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1A7A3C;margin-bottom:8px}
+.dqi p{font-size:.8rem;line-height:1.7;color:#333}
+.wnum{font-size:1rem;font-weight:800;color:#0A2E1A;letter-spacing:.05em}
+.doc-ft{border-top:2px solid #1A7A3C;padding-top:14px;text-align:center}
+.doc-ft p{font-size:.72rem;color:#555;line-height:1.65}
+.doc-ft strong{color:#1A7A3C}
+.dstamp{display:inline-block;border:3px solid #1A7A3C;border-radius:50%;padding:10px 14px;font-size:.65rem;font-weight:800;color:#1A7A3C;letter-spacing:.1em;text-transform:uppercase;opacity:.35;margin-top:10px}
+.dliv{background:#fff8e6;border:1px solid #D4AF37;border-radius:10px;padding:12px 16px;margin-bottom:18px;font-size:.8rem;line-height:1.65;color:#444}
+.dliv h4{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#D4AF37;margin-bottom:8px}
+/* FLOAT */
+.float-w{position:fixed;bottom:24px;right:20px;z-index:9998;display:flex;flex-direction:column;align-items:center;gap:6px}
+.float-panel{position:absolute;bottom:148px;right:0;width:220px;background:rgba(10,18,12,.97);border:1px solid var(--br);border-radius:16px;padding:18px;display:none;box-shadow:0 10px 40px rgba(0,0,0,.7)}
+.float-panel.open{display:block}
+.fp-name{font-size:.9rem;font-weight:800;color:var(--bl);text-align:left;margin-bottom:1px}
+.fp-role{font-style:italic;font-size:.72rem;color:var(--vc);text-align:left;display:block;margin-bottom:14px}
+.fp-links{display:flex;flex-direction:column;gap:6px}
+.fp-link{display:flex;align-items:center;gap:8px;font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;padding:8px 12px;border-radius:10px;background:rgba(29,185,84,.05);border:1px solid var(--br);transition:all .2s;cursor:pointer}
+.fp-link:hover{background:rgba(29,185,84,.12);color:var(--vc);border-color:rgba(29,185,84,.3)}
+.float-logo-ring{width:54px;height:54px;border-radius:50%;border:2px solid var(--oc);background:rgba(10,18,12,.9);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.4)}
+.float-logo-ring img{width:46px;height:46px;object-fit:contain;border-radius:50%}
+.float-tog{width:62px;height:62px;border-radius:50%;border:2px solid var(--vc);background:var(--cd);cursor:pointer;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.5),0 0 0 4px rgba(29,185,84,.1);transition:transform .3s;animation:pring 2s ease-out infinite;padding:0}
+.float-tog:hover{transform:scale(1.06)}
+.float-tog img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+@keyframes pring{0%{box-shadow:0 4px 20px rgba(0,0,0,.5),0 0 0 0 rgba(29,185,84,.4)}70%{box-shadow:0 4px 20px rgba(0,0,0,.5),0 0 0 14px rgba(29,185,84,0)}100%{box-shadow:0 4px 20px rgba(0,0,0,.5),0 0 0 0 rgba(29,185,84,0)}}
+footer{background:rgba(6,10,7,.98);border-top:1px solid var(--br);padding:36px 24px;text-align:center}
+.flogo{font-size:1.1rem;font-weight:800;letter-spacing:.12em;background:linear-gradient(135deg,var(--vc),var(--oc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:10px}
+footer p{font-size:.82rem;color:rgba(255,255,255,.3);line-height:1.6}
+.flinks{margin-top:18px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+footer a{font-size:.6rem;font-weight:600;letter-spacing:.1em;color:rgba(29,185,84,.4);text-decoration:none;text-transform:uppercase;transition:color .3s}
+footer a:hover{color:var(--vc)}
+@media print{body *{visibility:hidden!important}#docModal,#docModal *{visibility:visible!important}.doc-acts{display:none!important}#docModal{position:absolute;inset:0;background:white;padding:0}.doc-wrap{box-shadow:none;border-radius:0;max-height:none}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div style="position:relative;z-index:2;width:100%;max-width:1000px;">
+    <div class="hbadge">🇨🇮 LFA-CI · Édition Définitive · Mars 2026</div>
+    <h1 class="hname">Simplice<span>KOUAMÉ</span></h1>
+    <p class="htag">L'Architecte d'une Révolution Silencieuse — De Toumodi à la Révolution Bitcoin, Mémoire d'un Stratège au Service de l'Afrique Souveraine</p>
+    <div class="hpills">
+      <span class="pill pv">Légitimité</span><span class="pill po">Souveraineté</span><span class="pill pr">Innovation</span><span class="pill pv">Bitcoin & CFA</span><span class="pill po">Vision 2030</span><span class="pill pr">Coalition 509</span><span class="pill pv">LFA-CI</span><span class="pill po">Toumodi 1971</span>
+    </div>
+    <div class="hstats">
+      <div class="hs"><span class="hsn">275 056+</span><span class="hsl">Vues YouTube · 5 Vidéos · Oct 2025</span></div>
+      <div class="hs"><span class="hsn">509</span><span class="hsl">Communes Cibles · Municipales 2028</span></div>
+      <div class="hs"><span class="hsn">1 598 Mds</span><span class="hsl">FCFA · TCL · Horizon 10 ans</span></div>
+      <div class="hs"><span class="hsn">2030</span><span class="hsl">Objectif Présidentiel</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker"><div class="ticker-inner">
+  <span class="ti">#IvoireLégitimité</span><span class="ti">#CROIRETransition</span><span class="ti">#LFAPanafrique</span><span class="ti">#SouverainetéMonétaire</span><span class="ti">#BitcoinAfrique</span><span class="ti">#Municipales2028</span><span class="ti">#Présidentielle2030</span><span class="ti">#RévolutionSilencieuse</span><span class="ti">#Coalition509</span><span class="ti">#TCL</span><span class="ti">#FrancCFA</span>
+  <span class="ti">#IvoireLégitimité</span><span class="ti">#CROIRETransition</span><span class="ti">#LFAPanafrique</span><span class="ti">#SouverainetéMonétaire</span><span class="ti">#BitcoinAfrique</span><span class="ti">#Municipales2028</span><span class="ti">#Présidentielle2030</span><span class="ti">#RévolutionSilencieuse</span><span class="ti">#Coalition509</span><span class="ti">#TCL</span><span class="ti">#FrancCFA</span>
+</div></div>
+
+<nav class="nav-wrap"><div class="nav-inner" id="navInner">
+  <button class="ntab active" data-sec="overview">Présentation</button>
+  <button class="ntab" data-sec="bio">Biographie</button>
+  <button class="ntab" data-sec="bitcoin">Bitcoin & CFA</button>
+  <button class="ntab" data-sec="elections">Élections 2025</button>
+  <button class="ntab" data-sec="tcl">TCL</button>
+  <button class="ntab" data-sec="coalition">Coalition 509</button>
+  <button class="ntab" data-sec="vision">Vision LFA 2030</button>
+  <button class="ntab" data-sec="alliances">Alliances</button>
+  <button class="ntab" data-sec="bureau">Bureau Exécutif</button>
+  <button class="ntab" data-sec="calendrier">Calendrier</button>
+  <button class="ntab" data-sec="videos">Vidéothèque</button>
+  <button class="ntab" data-sec="download">📥 Téléchargement</button>
+</div></nav>
+
+<!-- PRÉSENTATION -->
+<div id="sec-overview" class="sec active">
+  <div class="sh"><span class="sh-eye">Essai Autobiographique · Édition Définitive Mars 2026</span><h2 class="sh-t">Une œuvre au service<br>de <em>l'Afrique Souveraine</em></h2><div class="sh-line"></div><p class="sh-sub">Un récit de vie, un manifeste politique, et un plan d'action concret pour libérer la Côte d'Ivoire — de l'intérieur, sans demander la permission à personne.</p></div>
+  <div class="mission"><p>Cet essai est le support idéologique et didactique incontournable pour tout partenaire politique, associatif, financier et technique, et pour chaque adhérent de LFA-CI.</p><p>Il porte une seule question fondamentale : <strong>comment libérer l'Afrique de l'intérieur, sans demander la permission à personne ?</strong></p><p>La réponse s'appelle <strong>Bitcoin</strong>. Son vecteur électoral s'appelle les <strong>Municipales de 2028</strong>. Son architecture institutionnelle s'appelle la <strong>Vision LFA 2030</strong>.</p></div>
+  <div class="quote"><blockquote>« Quand le peuple déserte les urnes, ce n'est pas l'abstention qui parle. C'est la révolution qui se prépare en silence. »</blockquote><span class="qattr">— Simplice KOUAMÉ, Toumodi, Mars 2026</span></div>
+  <div class="g2">
+    <div class="card"><div class="ctop"></div><div class="cp"><span class="ceye">Avant-propos</span><h3 class="ctit">Un essai qui n'aurait pas dû exister</h3><p class="csub">La prudence stratégique d'un architecte invisible</p><div class="cbody"><p>Simplice KOUAMÉ a suspendu son premier manuscrit en 2025 par excès de prudence stratégique. Il reprend la plume au printemps 2026 parce que ses yeux ont vu ce que d'autres refusent de regarder : la Côte d'Ivoire n'est pas épuisée. Elle est prête.</p><p>Prête pour une révolution sans armes — <strong>monétaire, citoyenne, numérique</strong> — portée par les millions d'Ivoiriens qui ont choisi de ne pas valider un théâtre dont ils n'étaient ni les acteurs, ni les bénéficiaires.</p><div class="hl"><p>« La réponse s'appelle Bitcoin. Son vecteur électoral s'appelle les Municipales de 2028. Son architecte s'appelle Simplice KOUAMÉ — né à Toumodi, foudroyé par Bitcoin en 2012, consacré par 275 056 regards ivoiriens en octobre 2025. »</p></div><div class="tags"><span class="tag tg">Manifeste</span><span class="tag to">Révolution Pacifique</span><span class="tag tor">Numérique</span><span class="tag tw">Constitutionnel</span></div></div></div></div>
+    <div class="card"><div class="ctop"></div><div class="cp"><span class="ceye">Édition Spéciale Enrichie</span><h3 class="ctit">30 Architectes pour une seule révolution</h3><p class="csub">Le Bureau Exécutif National LFA-CI</p><div class="cbody"><p>Cette édition intègre pour la première fois les portraits des 29 collaborateurs du Président de LFA-CI. Mandela n'a pas triomphé de l'apartheid sans le Comité Exécutif de l'ANC.</p><div class="hl"><p>Chaque Vice-Président, chaque Secrétaire Général Adjoint doit mesurer l'ampleur historique de sa mission dans ces pages.</p></div><div class="tags"><span class="tag tg">30 membres</span><span class="tag to">6 Vice-Présidences</span><span class="tag tor">11 SGA</span><span class="tag tw">12 Secrétaires</span></div></div></div></div>
+  </div>
+  <div class="stats">
+    <div class="sbox"><span class="snum">55</span><span class="slbl">Ans · 2 Mars 1971<br>Toumodi, Bélier</span></div>
+    <div class="sbox"><span class="snum">13 ans</span><span class="slbl">De Bitcoin 2012<br>aux Déclarations 2025</span></div>
+    <div class="sbox"><span class="snum">3 Fév.</span><span class="slbl">2026 · Président<br>LFA-CI nommé</span></div>
+    <div class="sbox"><span class="snum">275 056</span><span class="slbl">Vues cumulées<br>5 vidéos · Oct. 2025</span></div>
+    <div class="sbox"><span class="snum">509</span><span class="slbl">Communes &<br>Sous-préfectures</span></div>
+    <div class="sbox"><span class="snum">30</span><span class="slbl">Membres · Bureau<br>Exécutif National</span></div>
+  </div>
+</div>
+
+<!-- BIOGRAPHIE -->
+<div id="sec-bio" class="sec">
+  <div class="sh"><span class="sh-eye">Chapitres I, X, XIII</span><h2 class="sh-t">Simplice KOUAMÉ<br><em>Chronologie d'un Stratège</em></h2><div class="sh-line"></div></div>
+  <div class="quote"><blockquote>« Je ne veux pas conquérir le pouvoir. Je veux construire les conditions dans lesquelles le pouvoir reviendra de droit à ceux qui méritent de l'exercer : le peuple productif de Côte d'Ivoire. »</blockquote><span class="qattr">— Simplice KOUAMÉ, Mars 2026</span></div>
+  <div class="bio-grid">
+    <div class="bc"><h3>Jalons Biographiques — Chronologie Officielle</h3>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-date">2 Mars 1971</span><p class="tl-txt">Naissance à Toumodi (Région du Bélier) — Fils de Jacques KOUAMÉ et Élisabeth Kanou Epse KOUAMÉ, instituteurs catholiques.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-date">1991</span><p class="tl-txt">Entrée à l'Université de Cocody — Langue et Littérature anglophone.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-date">1993</span><p class="tl-txt">Premier éveil politique — Interactions avec les acteurs modérés de l'écosystème syndical scolaire et estudiantin (FESCI).</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-date">2000</span><p class="tl-txt">Rencontre de Séraphin BROU-KOFFI (Mentor) de regretté mémoire, et du Professeur Placide ZOUNGRANA (Modèle) à Toumodi. Éveil stratégique : la politique ivoirienne fonctionnait encore à l'ancienne.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-date">2012</span><p class="tl-txt"><strong style="color:var(--vc)">Révélation Bitcoin</strong> — Premier promoteur Bitcoin ivoirien identifiable sur Facebook. L'épiphanie intellectuelle et politique.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-date">2014</span><p class="tl-txt">Lancement du Projet Binaire MLM-BITCOIN dans 5 localités pilotes : Bonoua, Koumassi, Yamoussoukro, Guiberoua et Toumodi.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-date">8 Oct. 2015</span><p class="tl-txt">Mariage — Père de 5 enfants (2 filles, 3 garçons), grand-père de 2 petits-enfants. Foi Évangélique fondamentaliste comme boussole éthique.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-date">19 Fév. 2025</span><p class="tl-txt">Adhésion à Les Frères Africains — LFA. Nomination rapide au poste de Porte-Parole.</p></div></div>
+      <div class="tl-item"><div class="tl-dot" style="background:var(--orc)"></div><div><span class="tl-date">Oct. 2025</span><p class="tl-txt">5 Déclarations Solennelles YouTube · <strong style="color:var(--vc)">275 056 vues cumulées.</strong> La voix qui s'est levée.</p></div></div>
+      <div class="tl-item"><div class="tl-dot" style="background:var(--oc)"></div><div><span class="tl-date">3 Fév. 2026</span><p class="tl-txt"><strong style="color:var(--vc)">Nomination Président LFA-CI.</strong> Mandat : piloter La Révolution par la Base vers 2030.</p></div></div>
+      <div class="tl-item"><div class="tl-dot" style="background:var(--vc)"></div><div><span class="tl-date">Mars 2026</span><p class="tl-txt">Lancement TCL · 7 régions pilotes · Publication de cet essai · Constitution du Bureau Exécutif National de 30 membres.</p></div></div>
+    </div>
+    <div>
+      <div class="bc" style="margin-bottom:16px"><h3>Feuille de Route Stratégique 2026–2035</h3>
+        <table class="tbl"><thead><tr><th>Échéance</th><th>Objectif</th></tr></thead><tbody>
+          <tr><td>2026</td><td>509 Leaders Locaux Pro-Bitcoin recrutés & formés</td></tr>
+          <tr><td>2027</td><td>Convention désignation candidat présidentiel</td></tr>
+          <tr><td>Sept. 2028</td><td>Municipales — 120–150 maires Pro-Bitcoin élus</td></tr>
+          <tr><td>Oct. 2030</td><td>Présidentielle · Coalition LFA-PPA-CI-PDCI</td></tr>
+          <tr class="thl"><td>2035+</td><td>Souveraineté monétaire complète</td></tr>
+        </tbody></table>
+      </div>
+      <div class="bc"><h3>Compétences & Profil</h3>
+        <div class="mrow" style="margin-top:12px">
+          <div class="mod m2"><span class="meye">Langues</span><h4>Polyglotte</h4><p>Français · Anglais · Espagnol · Baoulé · Koulango · Bron</p></div>
+          <div class="mod m1"><span class="meye">Expertise</span><h4>Expert Fintech</h4><p>Bitcoin depuis 2012 · Stratège électoral · Coach politique</p></div>
+          <div class="mod m3"><span class="meye">Leadership</span><h4>Architecte</h4><p>Président LFA-CI · DG VoteConnect SARL · Dir. ChallengeFinancier™</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BITCOIN & CFA -->
+<div id="sec-bitcoin" class="sec">
+  <div class="sh"><span class="sh-eye">Chapitres II & IX</span><h2 class="sh-t">Bitcoin & Franc CFA<br><em>La Porte Dérobée dans les Murs</em></h2><div class="sh-line"></div></div>
+  <div class="quote"><blockquote>« Les peuples qui n'ont pas de monnaie souveraine n'ont pas d'avenir souverain. Ils ont juste l'illusion de l'indépendance. »</blockquote><span class="qattr">— Simplice KOUAMÉ</span></div>
+  <div class="g2">
+    <div class="card"><div class="ctop"></div><div class="cp"><span class="ceye">L'Architecture Coloniale du CFA</span><h3 class="ctit">La Cellule Monétaire</h3><div class="cbody"><p>Créé par décret du 26 décembre 1945. Jusqu'en 2005, <strong>65 % des réserves</strong> déposées au Trésor français. Parité fixe : <strong>655,957 FCFA pour 1 euro</strong>. La Côte d'Ivoire produit <strong>40 % du cacao mondial</strong> — moins de 6 % de la valeur finale reste au pays.</p><div class="hl"><p>Analogie : le propriétaire dont la maison appartient légalement à son voisin. À chaque décision structurelle, il doit demander l'autorisation. C'est exactement la situation des États africains de la zone CFA.</p></div><div class="tags"><span class="tag tor">Décret 26 Déc. 1945</span><span class="tag to">14 pays · 180M hab.</span><span class="tag tg">655,957 FCFA/€</span></div></div></div></div>
+    <div class="card"><div class="ctop"></div><div class="cp"><span class="ceye">Bitcoin — La Réponse</span><h3 class="ctit">L'or numérique du village du Bélier</h3><div class="cbody"><p>En 2012, Simplice KOUAMÉ découvre Bitcoin — la <strong>porte dérobée dans les murs de béton armé du Franc CFA</strong>. Pour la diaspora (≈ 1 million) : transfert Bitcoin &lt;1% de frais vs 7–12% via Western Union. Sur 500 milliards FCFA annuels : <strong>40 milliards récupérés directement.</strong></p><div class="hl"><p>El Salvador (sept. 2021) : premier État à adopter Bitcoin comme monnaie légale. 2,7 millions de citoyens accèdent à un système de paiement numérique sans banque.</p></div><div class="tags"><span class="tag tg">Depuis 2012</span><span class="tag to">El Salvador 2021</span><span class="tag tor">Diaspora 500 Mds FCFA</span></div></div></div></div>
+  </div>
+  <div style="margin-top:28px"><div class="mrow">
+    <div class="mod m2"><span class="meye">Bitcoin</span><h4>Réserve de Valeur</h4><p>Or numérique. Épargne long terme. Résistant à la censure. Réserves d'État dès 2030.</p></div>
+    <div class="mod m1"><span class="meye">USDT</span><h4>Transactions Quotidiennes</h4><p>Stablecoin adossé au dollar. Passerelle de transition vers la monnaie souveraine.</p></div>
+    <div class="mod m3"><span class="meye">Cible 2035</span><h4>Monnaie Souveraine</h4><p>Adossé cacao (40%) · or · pétrole. Parité fixée à Abidjan — non à Paris.</p></div>
+  </div></div>
+</div>
+
+<!-- ÉLECTIONS 2025 -->
+
+<div id="sec-elections" class="sec">
+  <div class="sh"><span class="sh-eye">Chapitres III & IV</span><h2 class="sh-t">2025 : L'Année où le Peuple<br><em>a Parlé par son Silence</em></h2><div class="sh-line"></div></div>
+  <div class="quote"><blockquote>« La démocratie n'est pas le régime des majorités silencieuses. C'est le régime des majorités qui se lèvent. »</blockquote><span class="qattr">— Simplice KOUAMÉ</span></div>
+  <div class="bio-grid">
+    <div class="bc"><h3>Présidentielle — 25 Octobre 2025</h3>
+      <table class="tbl"><thead><tr><th>Indicateur</th><th>Résultat</th></tr></thead><tbody>
+        <tr><td>Électeurs inscrits</td><td>8 727 431</td></tr>
+        <tr><td>Participation</td><td style="color:var(--orc);font-weight:700">50,10 % seulement</td></tr>
+        <tr><td>Ouattara</td><td>89,77 % des votes exprimés</td></tr>
+        <tr><td>Jean-Louis Billon</td><td>3 % des votes exprimés</td></tr>
+        <tr><td>Gagnoa</td><td style="color:var(--orc);font-weight:700">20,68 % de participation</td></tr>
+        <tr><td>Cocody-Abidjan</td><td style="color:var(--orc);font-weight:700">19,24 % de participation</td></tr>
+      </tbody></table>
+    </div>
+    <div class="bc"><h3>Législatives — 27 Décembre 2025</h3>
+      <table class="tbl"><thead><tr><th>Indicateur</th><th>Résultat</th></tr></thead><tbody>
+        <tr><td>Participation</td><td style="color:var(--orc);font-weight:700">35,04 % — 3 012 094 votants</td></tr>
+        <tr><td>RHDP</td><td>197 sièges / 255 (77,25 %)</td></tr>
+        <tr><td>PDCI-RDA</td><td>32 sièges</td></tr>
+        <tr><td>Indépendants</td><td style="color:var(--vc);font-weight:700">23 sièges — signal majeur</td></tr>
+        <tr><td>PPA-CI</td><td>Boycott total — 0 siège</td></tr>
+        <tr class="thl"><td>Abstention</td><td>65 % — signal révolutionnaire</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+  <div style="margin-top:24px" class="notice"><h4>Les 2 Chiffres Clés</h4>
+    <p><strong>50 % d'abstentionnistes à la présidentielle. 65 % aux législatives.</strong> Ces citoyens attendent une offre à leur hauteur.</p>
+    <p><strong style="color:var(--vc)">Le signal des 23 Indépendants :</strong> portés uniquement par leurs communautés — préfiguration exacte de la Coalition 509.</p>
+  </div>
+</div>
+
+<!-- TCL -->
+<div id="sec-tcl" class="sec">
+  <div class="sh"><span class="sh-eye">Chapitre V</span><h2 class="sh-t">TCL — Territorialité<br><em>Citoyenne Libre</em></h2><div class="sh-line"></div></div>
+  <div class="stats">
+    <div class="sbox"><span class="snum">9,4%</span><span class="slbl">Taux moyen pondéré cashback</span></div>
+    <div class="sbox"><span class="snum">1 598</span><span class="slbl">Milliards FCFA · 10 ans</span></div>
+    <div class="sbox"><span class="snum">50 M+</span><span class="slbl">Citoyens actifs · Horizon 10 ans</span></div>
+    <div class="sbox"><span class="snum">26%</span><span class="slbl">Équivalent budget annuel État</span></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="ctop"></div><div class="cp"><span class="ceye">Le Mécanisme TCL</span><h3 class="ctit">3 Catégories — Architecture du Cashback Civique</h3><div class="cbody">
+      <table class="tbl" style="margin-bottom:16px"><thead><tr><th>Catégorie</th><th>Part</th><th>Cashback</th></tr></thead><tbody>
+        <tr><td>TÔÔH'NDY</td><td>60 %</td><td>4 %</td></tr>
+        <tr><td>KITS SOCIAUX</td><td>25 %</td><td>16 %</td></tr>
+        <tr><td>MI SIKAH</td><td>15 %</td><td>20 %</td></tr>
+        <tr class="thl"><td>Taux pondéré</td><td>100 %</td><td>9,4 %</td></tr>
+      </tbody></table>
+    </div></div></div>
+    <div class="card"><div class="ctop"></div><div class="cp"><span class="ceye">Projections Financières — 10 ans</span><h3 class="ctit">Croissance Exponentielle</h3><div class="cbody">
+      <table class="tbl"><thead><tr><th>Année</th><th>Citoyens</th><th>Résultat</th></tr></thead><tbody>
+        <tr><td>2026</td><td>482 233</td><td>+11,5 Mds FCFA</td></tr>
+        <tr><td>2028</td><td>3 375 631</td><td>+94,6 Mds FCFA</td></tr>
+        <tr><td>2030</td><td>6 751 262</td><td>+179,2 Mds FCFA</td></tr>
+        <tr class="thl"><td>TOTAL</td><td>50 117 398</td><td>+1 597,9 Mds FCFA</td></tr>
+      </tbody></table>
+    </div></div></div>
+  </div>
+
+  <!-- RÉPARTITION DES CASHBACKS -->
+  <div style="margin-top:32px"><div class="sh" style="margin-bottom:24px"><span class="sh-eye">Architecture de Redistribution</span><h2 class="sh-t" style="font-size:clamp(1.2rem,3vw,1.8rem)">Répartition des <em>Cashbacks TCL</em></h2><div class="sh-line"></div><p class="sh-sub" style="font-size:.82rem">Un mécanisme de justice distributive : chaque franc dépensé par un citoyen finance simultanément sa communauté, la coordination locale et l'opérateur — sans aucune charge fiscale supplémentaire.</p></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:28px">
+    <div style="background:linear-gradient(135deg,rgba(29,185,84,.12),rgba(29,185,84,.04));border:1px solid rgba(29,185,84,.35);border-radius:18px;padding:22px 18px;text-align:center;position:relative;overflow:hidden">
+      <div style="font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,var(--vc),#A8F0C4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px">30,4%</div>
+      <div style="font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--vc);margin-bottom:8px">Communautés Locales</div>
+      <div style="font-size:.78rem;line-height:1.6;color:rgba(255,255,255,.6)">Retour direct vers les habitants et associations de la commune. La révolution profite d'abord au peuple.</div>
+    </div>
+    <div style="background:linear-gradient(135deg,rgba(212,175,55,.1),rgba(212,175,55,.03));border:1px solid rgba(212,175,55,.35);border-radius:18px;padding:22px 18px;text-align:center">
+      <div style="font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,var(--oc),#F5E070);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px">20,3%</div>
+      <div style="font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--oc);margin-bottom:8px">Coordinations Locales TCL</div>
+      <div style="font-size:.78rem;line-height:1.6;color:rgba(255,255,255,.6)">Financement des 509 coordinations de terrain, des leaders locaux Pro-Bitcoin et de leur logistique.</div>
+    </div>
+    <div style="background:linear-gradient(135deg,rgba(255,107,0,.1),rgba(255,107,0,.03));border:1px solid rgba(255,107,0,.35);border-radius:18px;padding:22px 18px;text-align:center">
+      <div style="font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,var(--ora),var(--orc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px">39,9%</div>
+      <div style="font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--orc);margin-bottom:8px">VoteConnect — Opérateur</div>
+      <div style="font-size:.78rem;line-height:1.6;color:rgba(255,255,255,.6)">Exploitation de la plateforme Wave Business, R&D, déploiement national, accompagnement stratégique.</div>
+    </div>
+    <div style="background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:22px 18px;text-align:center">
+      <div style="font-size:2.8rem;font-weight:900;color:rgba(255,255,255,.7);line-height:1;margin-bottom:8px">2%</div>
+      <div style="font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px">Dealers TCL</div>
+      <div style="font-size:.78rem;line-height:1.6;color:rgba(255,255,255,.5)">Candidats Conseillers Municipaux & Régionaux. La commission citoyenne de ceux qui s'engagent au suffrage.</div>
+    </div>
+  </div>
+
+  <!-- BARRE VISUELLE DE RÉPARTITION -->
+  <div style="background:var(--cd);border:1px solid var(--br);border-radius:16px;padding:20px 24px;margin-bottom:32px">
+    <div style="font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px">Visualisation de la répartition sur 100 % du cashback</div>
+    <div style="display:flex;height:28px;border-radius:10px;overflow:hidden;gap:2px">
+      <div style="width:30.4%;background:linear-gradient(90deg,var(--vert),var(--vc));display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:var(--bg)">30,4%</div>
+      <div style="width:20.3%;background:linear-gradient(90deg,var(--or),var(--oc));display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:var(--bg)">20,3%</div>
+      <div style="width:39.9%;background:linear-gradient(90deg,var(--ora),var(--orc));display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:#fff">39,9%</div>
+      <div style="width:9.4%;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:800;color:rgba(255,255,255,.6)">2%</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:10px">
+      <span style="font-size:.6rem;color:var(--vc);display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;background:var(--vc);border-radius:2px;flex-shrink:0"></span>Communautés Locales</span>
+      <span style="font-size:.6rem;color:var(--oc);display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;background:var(--oc);border-radius:2px;flex-shrink:0"></span>Coordinations TCL</span>
+      <span style="font-size:.6rem;color:var(--orc);display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;background:var(--orc);border-radius:2px;flex-shrink:0"></span>VoteConnect Opérateur</span>
+      <span style="font-size:.6rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;background:rgba(255,255,255,.2);border-radius:2px;flex-shrink:0"></span>Dealers TCL</span>
+    </div>
+  </div>
+
+  <!-- ANALYSE COMPARATIVE CROWDFUNDING -->
+  <div style="margin-top:8px"><div class="sh" style="margin-bottom:24px"><span class="sh-eye">Innovation Politique — Analyse Comparative</span><h2 class="sh-t" style="font-size:clamp(1.2rem,3vw,1.8rem)">TCL vs <em>Obama · Macron</em><br>L'Originalité d'un Financement Inédit</h2><div class="sh-line"></div></div>
+
+  <div class="quote" style="margin-bottom:32px"><blockquote>« Obama a prouvé que la masse pouvait financer la démocratie. Macron a prouvé que la technologie pouvait court-circuiter les partis. TCL prouve que l'acte d'achat quotidien d'un citoyen ordinaire peut financer sa propre émancipation politique — sans qu'il débourse un franc de plus. »</blockquote><span class="qattr">— Simplice KOUAMÉ · Mars 2026</span></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:28px">
+
+    <!-- OBAMA -->
+    <div style="background:var(--cd);border:1px solid rgba(29,185,84,.2);border-radius:20px;overflow:hidden">
+      <div style="background:linear-gradient(90deg,rgba(29,185,84,.15),transparent);padding:18px 22px 14px;border-bottom:1px solid rgba(29,185,84,.15)">
+        <div style="font-size:.58rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--vc);margin-bottom:6px">🇺🇸 Modèle Obama 2008 & 2012</div>
+        <div style="font-size:1rem;font-weight:800;color:var(--bl)">Le Crowdfunding Démocratique</div>
+        <div style="font-size:.78rem;color:var(--vc);font-weight:700;margin-top:4px">750 M$ (2008) · 1 Md$ (2012)</div>
+      </div>
+      <div style="padding:18px 22px">
+        <div style="font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.7);margin-bottom:14px">Obama révolutionne le financement politique en collectant en ligne des millions de petits dons : don moyen de <strong style="color:var(--vc)">86 $ en 2008</strong>. Plus de 3 millions de donateurs individuels. La démocratie n'appartient plus aux seuls grands donateurs corporatifs.</div>
+        <div style="background:rgba(29,185,84,.06);border-left:3px solid var(--vc);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.8rem;color:rgba(255,255,255,.65);margin-bottom:12px"><strong style="color:var(--vc)">Force :</strong> démocratisation du financement politique. <strong style="color:var(--vc)">Limite :</strong> le citoyen doit consentir un sacrifice financier supplémentaire — il sort de l'argent de sa poche.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <span class="tag tg">Don volontaire</span><span class="tag tw">Effort financier explicite</span><span class="tag tg">3M+ donateurs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MACRON -->
+    <div style="background:var(--cd);border:1px solid rgba(212,175,55,.2);border-radius:20px;overflow:hidden">
+      <div style="background:linear-gradient(90deg,rgba(212,175,55,.12),transparent);padding:18px 22px 14px;border-bottom:1px solid rgba(212,175,55,.15)">
+        <div style="font-size:.58rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--oc);margin-bottom:6px">🇫🇷 Modèle Macron 2017</div>
+        <div style="font-size:1rem;font-weight:800;color:var(--bl)">La Disruption Numérique Partisane</div>
+        <div style="font-size:.78rem;color:var(--oc);font-weight:700;margin-top:4px">16,7 M€ collectés · En Marche !</div>
+      </div>
+      <div style="padding:18px 22px">
+        <div style="font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.7);margin-bottom:14px">Macron fonde En Marche ! en avril 2016 et lève 16,7 millions d'euros via une plateforme numérique dédiée. Il court-circuite les structures partisanes traditionnelles grâce au digital et aux réseaux sociaux. En 14 mois, un inconnu devient Président.</div>
+        <div style="background:rgba(212,175,55,.06);border-left:3px solid var(--oc);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.8rem;color:rgba(255,255,255,.65);margin-bottom:12px"><strong style="color:var(--oc)">Force :</strong> vitesse et agilité numérique, court-circuit des partis établis. <strong style="color:var(--oc)">Limite :</strong> le citoyen doit encore sortir de l'argent. La mobilisation reste liée à un leader central unique.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <span class="tag to">Don volontaire</span><span class="tag tw">Leader central</span><span class="tag to">Digital natif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TCL -->
+    <div style="background:linear-gradient(135deg,rgba(29,185,84,.06),rgba(212,175,55,.03));border:2px solid rgba(29,185,84,.4);border-radius:20px;overflow:hidden;position:relative">
+      <div style="position:absolute;top:10px;right:14px;font-size:.55rem;font-weight:800;letter-spacing:.12em;background:linear-gradient(90deg,var(--vert),var(--oc));color:var(--bg);padding:4px 12px;border-radius:100px;text-transform:uppercase">🏆 Innovation TCL</div>
+      <div style="background:linear-gradient(90deg,rgba(29,185,84,.2),rgba(212,175,55,.08));padding:18px 22px 14px;border-bottom:1px solid rgba(29,185,84,.25)">
+        <div style="font-size:.58rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--vc);margin-bottom:6px">🇨🇮 Modèle TCL — Simplice KOUAMÉ 2026</div>
+        <div style="font-size:1rem;font-weight:800;color:var(--bl)">Le Financement Politique Invisible</div>
+        <div style="font-size:.78rem;color:var(--vc);font-weight:700;margin-top:4px">1 597,9 Mds FCFA · 0 franc de don supplémentaire</div>
+      </div>
+      <div style="padding:18px 22px">
+        <div style="font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.7);margin-bottom:14px">TCL est la première architecture politique au monde où le financement d'un mouvement est <strong style="color:var(--vc)">automatiquement généré par les achats du quotidien</strong> — sans qu'un seul citoyen ne soit sollicité pour un don. Chaque achat de riz, de savon, ou d'huile génère un cashback qui remonte automatiquement vers la communauté et la coordination politique locale.</div>
+        <div style="background:rgba(29,185,84,.08);border-left:3px solid var(--vc);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.8rem;color:rgba(255,255,255,.72);margin-bottom:12px"><strong style="color:var(--vc)">Force décisive :</strong> le citoyen ne sacrifie rien. Il consomme. Il contribue. Automatiquement. <strong style="color:var(--vc)">Originalité absolue :</strong> 509 nœuds décentralisés — aucune tête à couper, aucun leader central à éliminer. Le modèle est inattaquable par nature.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <span class="tag tg">0 franc de don</span><span class="tag tg">Décentralisé</span><span class="tag to">509 nœuds</span><span class="tag tor">Inattaquable</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLEAU COMPARATIF SYNTHÈSE -->
+  <div class="bc" style="margin-bottom:0">
+    <h3>Synthèse Comparative — Ce qui rend TCL unique dans l'histoire du financement politique</h3>
+    <table class="tbl" style="margin-top:16px"><thead><tr><th>Critère</th><th>Obama 2008</th><th>Macron 2017</th><th style="color:var(--vc)">TCL 2026–2030</th></tr></thead><tbody>
+      <tr><td>Source du financement</td><td>Dons citoyens volontaires</td><td>Dons numériques volontaires</td><td style="color:var(--vc);font-weight:700">Achats du quotidien automatiques</td></tr>
+      <tr><td>Effort du citoyen</td><td>Sacrifice financier explicite</td><td>Sacrifice financier explicite</td><td style="color:var(--vc);font-weight:700">Zéro — il consomme normalement</td></tr>
+      <tr><td>Architecture</td><td>Plateforme centrale</td><td>Mouvement à leader central</td><td style="color:var(--vc);font-weight:700">509 nœuds décentralisés</td></tr>
+      <tr><td>Modèle de redistribution</td><td>Aucun (sens unique : citoyen → parti)</td><td>Aucun (sens unique : citoyen → parti)</td><td style="color:var(--vc);font-weight:700">Double sens : citoyen ↔ communauté ↔ politique</td></tr>
+      <tr><td>Régulation étatique</td><td>Soumis aux lois FEC (USA)</td><td>Soumis à la CNCCFP (France)</td><td style="color:var(--vc);font-weight:700">Via Wave Business · cadre légal ivoirien</td></tr>
+      <tr><td>Technologie</td><td>Email & Web 2.0</td><td>Réseaux sociaux & mobile</td><td style="color:var(--vc);font-weight:700">Wave Business · Blockchain · Bitcoin</td></tr>
+      <tr class="thl"><td>Résultat potentiel (horizon 10 ans)</td><td>1 Md$ · 1 élection</td><td>16,7 M€ · 1 élection</td><td>1 597,9 Mds FCFA · Structurel & pérenne</td></tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+</div>
+
+<!-- COALITION 509 -->
+<div id="sec-coalition" class="sec">
+  <div class="sh"><span class="sh-eye">Chapitre VI</span><h2 class="sh-t">La Coalition des <em>509</em><br>Maillage Total du Territoire</h2><div class="sh-line"></div></div>
+  <div class="stats">
+    <div class="sbox"><span class="snum">509</span><span class="slbl">Communes & Sous-préfectures</span></div>
+    <div class="sbox"><span class="snum">50</span><span class="slbl">Seuil Minimal · Viabilité</span></div>
+    <div class="sbox"><span class="snum">125</span><span class="slbl">Seuil Intermédiaire · Poids national</span></div>
+    <div class="sbox"><span class="snum">250</span><span class="slbl">Seuil Révolution · Présidentielle 2030</span></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="ctop"></div><div class="cp"><span class="ceye">Logique du Maillage Total</span><h3 class="ctit">La Toile d'Araignée — Inattaquable</h3><div class="cbody"><p>509 nœuds autonomes interconnectés. Comme le mouvement Zapatiste, comme Gandhi : non pas une tête unique à couper, mais un rhizome impossible à déraciner.</p><div class="hl"><p>Si vous êtes partout, votre adversaire ne peut vous cibler nulle part.</p></div></div></div></div>
+    <div class="card"><div class="ctop"></div><div class="cp"><span class="ceye">Profil du Leader Local Pro-Bitcoin</span><h3 class="ctit">Pas des politiciens — des citoyens engagés</h3><div class="cbody"><p>▸ 30 à 55 ans · actif secteur formel ou informel<br>▸ Utilisateur de services numériques et mobile money<br>▸ Connu et respecté dans son quartier<br>▸ Capable d'expliquer Bitcoin en langue locale<br>▸ <strong style="color:var(--orc)">Zéro passé de corruption — condition non négociable</strong></p></div></div></div>
+  </div>
+</div>
+
+<!-- VISION LFA 2030 -->
+<div id="sec-vision" class="sec">
+  <div class="sh"><span class="sh-eye">Chapitres VII, XI & XII — Refonte Institutionnelle</span><h2 class="sh-t">Vision Institutionnelle LFA<br><em>Les Six Piliers de la Refonte de l'État</em></h2><div class="sh-line"></div><p class="sh-sub">Changer la monnaie sans réformer l'État, ce serait vouloir planter une graine d'acajou dans un sol bétonné.</p></div>
+  <div class="quote"><blockquote>« Avec Bitcoin, un entrepreneur ivoirien de Toumodi traite d'égal à égal avec un entrepreneur français de Lyon, un trader américain de New York, un investisseur japonais de Tokyo. »</blockquote><span class="qattr">— Simplice KOUAMÉ, Mars 2026</span></div>
+  <div class="acc" onclick="toggleAcc(this)"><div class="acc-h"><span class="acc-n">I</span><div class="acc-i"><h4>Restructuration des 7 Grandes Institutions</h4><span>Régime parlementaire monocaméral · Modèle constitutionnel allemand</span></div><span class="acc-arr">▼</span></div>
+    <div class="acc-body"><div class="acc-inner"><p>L'architecture institutionnelle actuelle, inchangée depuis 1960, sera réformée selon les principes d'un <strong>régime parlementaire monocaméral</strong> où le Premier Ministre détient le pouvoir exécutif effectif. La Présidence conserve un rôle de garant constitutionnel — modèle allemand.</p><p>L'Allemagne, traumatisée par l'hyperprésidentialisme de la République de Weimar, a conçu son régime pour rendre impossible la concentration du pouvoir dans une seule main. La Côte d'Ivoire de 2030 a besoin de la même garantie structurelle.</p></div></div></div>
+  <div class="acc" onclick="toggleAcc(this)"><div class="acc-h"><span class="acc-n">II</span><div class="acc-i"><h4>Conseil Suprême des Rois & Chefs de Terre</h4><span>Second pouvoir constitutionnel · Modèle Asanteman Council (Ghana) · 400 ans de stabilité</span></div><span class="acc-arr">▼</span></div>
+    <div class="acc-body"><div class="acc-inner"><p>Le Programme LFA confère aux autorités traditionnelles un <strong>statut constitutionnel de second pouvoir</strong>, immédiatement après l'Exécutif. Modèle : l'<em>Asanteman Council</em> du Ghana — quatre siècles d'existence et toujours debout. Organisé en 6 zones ethnolinguistiques historiques.</p><p><strong>Pouvoirs clés :</strong> Co-nomination des 3 Ministères de Souveraineté (unanimité requise). Veto constitutionnel sur certaines candidatures législatives. Gardien de la continuité culturelle et territoriale.</p></div></div></div>
+  <div class="acc" onclick="toggleAcc(this)"><div class="acc-h"><span class="acc-n">III</span><div class="acc-i"><h4>Gouvernement de 16 Ministères Biportefeuilles</h4><span>3 Souveraineté · 7 Économiques & Sociaux · 6 Techniques</span></div><span class="acc-arr">▼</span></div>
+    <div class="acc-body"><div class="acc-inner"><p><strong style="color:var(--orc)">3 Ministères de Souveraineté</strong> (unanimité CSR requise) : Intérieur & Immigration · Nationalisation de l'Économie · Monnaie, Finance & Échanges</p><p><strong style="color:var(--vc)">7 Ministères Économiques & Sociaux</strong> : Économie & Planification · Emploi & Formation · Santé · Éducation & Innovation · Culture & Cohésion · Commerce & Compétitivité · Agriculture & Souveraineté Alimentaire</p><p><strong style="color:var(--oc)">6 Ministères Techniques</strong> : Infrastructures · Énergie & Environnement · Transports & Logistique · Finances & Budget · Justice & Droits Humains · Défense & Sécurité</p></div></div></div>
+  <div class="acc" onclick="toggleAcc(this)"><div class="acc-h"><span class="acc-n">IV</span><div class="acc-i"><h4>Architecture Parlementaire Monocamérale</h4><span>275 Députés · 31 régions · 6 zones ethnolinguistiques · Dissolution du Sénat</span></div><span class="acc-arr">▼</span></div>
+    <div class="acc-body"><div class="acc-inner"><p>L'Assemblée Nationale comptera <strong>275 députés</strong> représentant les 31 régions organisées en six zones ethnolinguistiques historiques. <strong>Dissolution du Sénat</strong> — institution perçue comme coûteuse et peu représentative.</p><p>Minimum garanti de 3 sièges par région pour protéger les territoires à faible densité démographique. La représentation directe par zone ethnolinguistique garantit l'inclusion de toutes les communautés.</p></div></div></div>
+  <div class="acc" onclick="toggleAcc(this)"><div class="acc-h"><span class="acc-n">V</span><div class="acc-i"><h4>Transition Monétaire vers la Souveraineté Complète</h4><span>3 Phases · 2030 → 2035+</span></div><span class="acc-arr">▼</span></div>
+    <div class="acc-body"><div class="acc-inner"><div class="prow">
+      <div class="pb"><h5>Phase 1 · 2030–2032</h5><p>Parallélisation — Stablecoin d'État 30% · Bitcoin 5% réserve d'État · Franc CFA maintenu.</p></div>
+      <div class="pb"><h5>Phase 2 · 2032–2035</h5><p>Intégration — Monnaie souveraine 60% · Franc CFA réduit à 30% · Négociations UEMOA.</p></div>
+      <div class="pb"><h5>Phase 3 · 2035+</h5><p>Souveraineté complète — Banque Centrale ivoirienne indépendante · Paris n'a plus de voix.</p></div>
+    </div></div></div></div>
+  <div class="acc" onclick="toggleAcc(this)"><div class="acc-h"><span class="acc-n">VI</span><div class="acc-i"><h4>Programme des 100 Premiers Jours — Post-Victoire 2030</h4><span>La Révolution se Planifie dès le Premier Jour</span></div><span class="acc-arr">▼</span></div>
+    <div class="acc-body"><div class="acc-inner">
+      <table class="tbl"><thead><tr><th>Période</th><th>Actions Engagées</th></tr></thead><tbody>
+        <tr><td>Jours 1–10</td><td>Constitution CNT-M · Cabinet 16 ministres · Décret Bitcoin monnaie légale complémentaire</td></tr>
+        <tr><td>Jours 11–30</td><td>Plateforme audit Blockchain · Dissolution Sénat · Suspension marchés publics &gt;500M FCFA</td></tr>
+        <tr class="thl"><td>Jours 31–100</td><td>Stablecoin d'État pilote · Négociations UEMOA · EMPLOI.CI : 500 000 emplois d'ici 2032</td></tr>
+      </tbody></table>
+    </div></div></div>
+</div>
+
+<!-- ALLIANCES -->
+<div id="sec-alliances" class="sec">
+  <div class="sh"><span class="sh-eye">Chapitre VIII</span><h2 class="sh-t">Construire la<br><em>Coalition Gagnante 2030</em></h2><div class="sh-line"></div></div>
+  <div class="g3" style="margin-top:32px">
+    <div class="allcard"><div class="all-rk">1</div><h3>LFA + PPA-CI</h3><p>Alliance Prioritaire. Boycott commun des législatives 2025 — convergence idéologique profonde. Investitures communes dans 150 circonscriptions prioritaires.</p><span class="gain">+12 à 15 % des votes</span></div>
+    <div class="allcard"><div class="all-rk">2</div><h3>LFA + PDCI-RDA</h3><p>Proposition : « Retour aux valeurs PDCI originelles ». Argument irrésistible pour les cadres PDCI déçus par la dérive actuelle.</p><span class="gain">+8 à 10 % des votes</span></div>
+    <div class="allcard"><div class="all-rk">3</div><h3>LFA + RHDP Modérés</h3><p>Technocrates et DG d'entreprises. L'argument : la Côte d'Ivoire ne peut rester compétitive sans souveraineté monétaire au 21e siècle.</p><span class="gain">+5 à 7 % des votes</span></div>
+  </div>
+  <div style="margin-top:24px" class="bc"><h3>La Mathématique Électorale de la Victoire</h3>
+    <table class="tbl" style="margin-top:16px"><thead><tr><th>Composante</th><th>Apport Electoral</th></tr></thead><tbody>
+      <tr><td>Base LFA-CI propre</td><td>15 à 20 %</td></tr>
+      <tr><td>Alliance PPA-CI</td><td>+12 à 15 %</td></tr>
+      <tr><td>Alliance PDCI-RDA</td><td>+8 à 10 %</td></tr>
+      <tr><td>RHDP Modérés</td><td>+5 à 7 %</td></tr>
+      <tr><td>Abstentionnistes mobilisés (TCL)</td><td>+5 à 8 %</td></tr>
+      <tr class="thl"><td>TOTAL COALITION</td><td>45 à 50 % — Victoire 1er tour</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- BUREAU EXÉCUTIF -->
+<div id="sec-bureau" class="sec">
+  <div class="sh"><span class="sh-eye">Chapitre XIV — Les 29 Architectes</span><h2 class="sh-t">Bureau Exécutif National<br><em>LFA-CI — 30 Bâtisseurs</em></h2><div class="sh-line"></div><p class="sh-sub">Comme dans toute grande symphonie, chaque instrument a sa partition, son tempo, sa place dans l'harmonie d'ensemble.</p></div>
+  <div class="notice"><h4>La Stratégie 90/10</h4>
+    <p>90 % des candidats issus de la société civile libre. Maximum 10 % du secteur privé conventionnel.</p>
+    <div class="srow">
+      <div class="si"><span class="spct">25–30%</span><span class="slb2">Commerçants & Industriels</span></div>
+      <div class="si"><span class="spct">30–35%</span><span class="slb2">Jeunes 18–35 ans</span></div>
+      <div class="si"><span class="spct">20–25%</span><span class="slb2">Agriculteurs</span></div>
+      <div class="si"><span class="spct">60–70%</span><span class="slb2">Secteur informel global</span></div>
+      <div class="si"><span class="spct">Max 10%</span><span class="slb2">Secteur privé conventionnel</span></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--vc);margin:32px 0 4px">Présidence</h3>
+  <div class="bgrid">
+    <div class="bcard" style="border-color:rgba(212,175,55,.35)"><span class="bpole" style="color:var(--oc)">Président · LFA-CI</span><p class="bname">Simplice KOUAMÉ</p><p class="btit">L'Architecte d'une Révolution Silencieuse</p><p class="bmis">Directeur Général VoteConnect SARL · Directeur Académique ChallengeFinancier™ · Stratège politique depuis 2012 · 275 056 vues YouTube · Toumodi, Région du Bélier.</p><span class="bkpi" style="color:var(--oc);border-color:rgba(212,175,55,.3)">🏛️ Président nommé le 3 Fév. 2026</span></div>
+  </div>
+
+  <h3 style="font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--vc);margin:28px 0 4px">Les 6 Vice-Présidences</h3>
+  <div class="bgrid">
+    <div class="bcard"><span class="brk">1</span><span class="bpole">1er VP · Politique Générale</span><p class="bname">Denis Brou KRAMO</p><p class="btit">Chef d'État-Major Politique</p><p class="bmis">Définit la stratégie politique globale. Traduit la vision du Président en stratégie opérationnelle. Assure la cohérence des orientations avec les objectifs 2028–2030.</p><span class="bkpi">📊 14+ listes 90/10 · 5+ conventions</span></div>
+    <div class="bcard"><span class="brk">2</span><span class="bpole">2ème VP · Implantation Territoriale</span><p class="bname">Hubert Tuberguene N'GUESSAN</p><p class="btit">Géographe de la Révolution</p><p class="bmis">Supervise le déploiement dans les 7 zones pilotes. Transforme la carte des 31 régions en terrain de conquête citoyenne.</p><span class="bkpi">📊 7/7 zones opérationnelles fin 2027</span></div>
+    <div class="bcard"><span class="brk">3</span><span class="bpole">3ème VP · Commerce & Industrie</span><p class="bname">Valentin Koffi KOUASSI</p><p class="btit">Pont entre l'Économie Réelle et la Politique</p><p class="bmis">Mobilise et forme les commerçants et industriels. Représente les 60% d'Ivoiriens dont l'économie se fait dans les marchés.</p><span class="bkpi">📊 250+ commerçants formés</span></div>
+    <div class="bcard"><span class="brk">4</span><span class="bpole">4ème VP · Cohésion Sociale</span><p class="bname">Marie-Aimée Epse DRO</p><p class="btit">Gardienne du Feu Intérieur</p><p class="bmis">Garantit l'harmonie et la cohésion au sein de l'organisation. Elle est le rempart contre les tensions internes — premier ennemi de toute révolution.</p><span class="bkpi">📊 85%+ satisfaction · 100% conflits résolus</span></div>
+    <div class="bcard"><span class="brk">5</span><span class="bpole">5ème VP · Économie & Finances</span><p class="bname">Serge Landry OUEDRAOGO</p><p class="btit">Trésorier de la Révolution</p><p class="bmis">Pilote la stratégie économique et financière. Prouve par les chiffres que la souveraineté économique est un programme, non un rêve.</p><span class="bkpi">📊 200M+ FCFA mobilisés 2027</span></div>
+    <div class="bcard"><span class="brk">6</span><span class="bpole">6ème VP · Jeunesse</span><p class="bname">Robert Ezoua BADOU</p><p class="btit">Général des Forces Vives</p><p class="bmis">Mobilise et forme massivement la jeunesse. 30–35% des candidats LFA doivent avoir entre 18 et 35 ans.</p><span class="bkpi">📊 2500+ jeunes formés · 50K+ followers</span></div>
+  </div>
+
+  <h3 style="font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--vc);margin:28px 0 4px">Secrétariat Général — 11 SGA</h3>
+  <div class="bgrid">
+    <div class="bcard"><span class="bpole">Secrétaire Général</span><p class="bname">Simon Boihirin KOUAMÉ</p><p class="btit">Chef d'Orchestre — Pivot Opérationnel</p><p class="bmis">Assure le pilotage opérationnel quotidien. Supervise l'ensemble des SGA.</p><span class="bkpi">📊 95%+ décisions exécutées</span></div>
+    <div class="bcard"><span class="bpole">SGA — Trésor</span><p class="bname">Soura Doriane SOMDA</p><p class="btit">Gardienne du Coffre-Fort Révolutionnaire</p><p class="bmis">Gère la trésorerie et les flux financiers. Zéro tolérance pour les irrégularités.</p><span class="bkpi">📊 Trésorerie positive 100% · 0 erreur</span></div>
+    <div class="bcard"><span class="bpole">SGA — Portefeuille d'Investissements</span><p class="bname">Honoré Konan KOUAMÉ</p><p class="btit">Stratège de la Richesse Collective</p><p class="bmis">Transforme l'épargne des militants en capital d'indépendance.</p><span class="bkpi">📊 800M+ FCFA · 10%+ annuel</span></div>
+    <div class="bcard"><span class="bpole">SGA — Affaires Extérieures</span><p class="bname">Valerie Akoua KOUADIO</p><p class="btit">Ambassadrice de la Révolution Panafricaine</p><p class="bmis">Développe les relations avec les sections LFA d'autres pays africains.</p><span class="bkpi">📊 5+ partenariats internationaux</span></div>
+    <div class="bcard"><span class="bpole">SGA — Administration Générale</span><p class="bname">Franck Clautaire SLEMY</p><p class="btit">Bâtisseur de l'Infrastructure Organisationnelle</p><p class="bmis">Assure la gestion administrative quotidienne, la logistique et les aspects juridiques. 100% conformité légale.</p><span class="bkpi">📊 100% conformité · 7j traitement</span></div>
+    <div class="bcard"><span class="bpole">SGA — Panafricanisme</span><p class="bname">Fidel Nohoré TAPÉ</p><p class="btit">Philosophe de la Révolution</p><p class="bmis">Ancre l'action quotidienne dans une pensée longue, continentale, civilisationnelle. Avec lui, LFA est un mouvement de civilisation.</p><span class="bkpi">📊 8+ partenariats panafricains</span></div>
+    <div class="bcard"><span class="bpole">SGA — Défense & Sécurité</span><p class="bname">Daniel KOUAMÉ</p><p class="btit">Garde du Temple Révolutionnaire</p><p class="bmis">Assure la sécurité physique et informatique de l'organisation. La cybersécurité est une nécessité vitale.</p><span class="bkpi">📊 0 incident sécurité · 12+ formations/an</span></div>
+    <div class="bcard"><span class="bpole">SGA — Communication</span><p class="bname">Charles KOUASSI</p><p class="btit">Maître des Récits</p><p class="bmis">Pilote la stratégie de communication globale. Transforme la vision en message populaire mobilisateur.</p><span class="bkpi">📊 5M+ personnes/mois · 60%+ notoriété</span></div>
+    <div class="bcard"><span class="bpole">SGA — Organisation Territoriale</span><p class="bname">Samuel MAKAGNON</p><p class="btit">Architecte Territorial</p><p class="bmis">S'assure que chaque commune a une cellule LFA active. Transforme la stratégie en 509 nœuds vivants interconnectés.</p><span class="bkpi">📊 20+ sections créées 2027</span></div>
+    <div class="bcard"><span class="bpole">SGA — Éducation & Culture</span><p class="bname">Patrick Nikon KOUAMÉ</p><p class="btit">Gardien de la Conscience Collective</p><p class="bmis">S'assure que la révolution a une âme, pas seulement un programme. Transforme des militants en citoyens éclairés.</p><span class="bkpi">📊 24+ événements éducatifs/an</span></div>
+    <div class="bcard"><span class="bpole">SGA — Formation & Emploi</span><p class="bname">Sylvestre Miézan KONAN</p><p class="btit">Directeur de l'Académie Révolutionnaire</p><p class="bmis">Supervise l'ensemble des activités de formation ChallengeFinancier™. La formation est l'arme la plus puissante de LFA.</p><span class="bkpi">📊 6000+ formés · 60%+ certifiés</span></div>
+  </div>
+
+  <h3 style="font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--vc);margin:28px 0 4px">12 Secrétaires Spécialisés</h3>
+  <div class="bgrid">
+    <div class="bcard"><span class="bpole">Communication — Presse Traditionnelle</span><p class="bname">Elvis LOUKOU</p><p class="btit">Porte-parole Média</p><p class="bmis">Gère les relations avec les médias traditionnels. Construit la crédibilité institutionnelle de LFA dans le paysage médiatique ivoirien.</p><span class="bkpi">📊 40+ mentions médias/mois</span></div>
+    <div class="bcard"><span class="bpole">Communication — Réseaux Sociaux</span><p class="bname">Fallone Ahou KONAN</p><p class="btit">Voix Numérique de la Révolution</p><p class="bmis">Porte le message LFA sur les écrans de la jeunesse ivoirienne. À l'ère de TikTok, elle est aussi importante qu'un porte-parole officiel.</p><span class="bkpi">📊 100K+ followers fin 2027</span></div>
+    <div class="bcard"><span class="bpole">Sécurité — Civisme Associatif</span><p class="bname">Vincent Kouadio KOUAMÉ</p><p class="btit">Gardien de l'Intégrité</p><p class="bmis">S'assure que LFA pratique ce qu'il prêche. Une révolution qui prêche la bonne gouvernance doit se gouverner elle-même avec exemplarité.</p><span class="bkpi">📊 5 manquements/an max · 100% résolution</span></div>
+    <div class="bcard"><span class="bpole">Solidarité Nationale</span><p class="bname">Flora Mélaine Epse AKÉ</p><p class="btit">Tisserande du Lien Social National</p><p class="bmis">Coordonne les actions de solidarité nationale. S'assure que personne n'est laissé pour compte dans la révolution.</p><span class="bkpi">📊 50M+ FCFA fonds · 200+ bénéficiaires/an</span></div>
+    <div class="bcard"><span class="bpole">Solidarité Locale</span><p class="bname">Matthieu YAPO</p><p class="btit">Gardien de la Fraternité de Proximité</p><p class="bmis">Développe et anime les actions de solidarité entre membres au niveau local. Prouve que LFA est une communauté vivante.</p><span class="bkpi">📊 50+ membres aidés/an · 20M+ FCFA</span></div>
+    <div class="bcard"><span class="bpole">Organisation — Mobilisation</span><p class="bname">Innocent KPALA</p><p class="btit">Grand Recruteur de la Révolution</p><p class="bmis">Transforme les 65% d'abstentionnistes en militants actifs. La locomotive du mouvement.</p><span class="bkpi">📊 2000+ membres 2026 · 5000+ en 2027</span></div>
+    <div class="bcard"><span class="bpole">Mobilisation — Secteur Informel</span><p class="bname">Jean De Dieu ASSEMIAN</p><p class="btit">Porte-parole des Invisibles</p><p class="bmis">Va chercher la révolution dans les marchés d'Adjamé, les ateliers de Koumassi, les champs du Bélier.</p><span class="bkpi">📊 1500+ recrutés · 60-70% listes 90/10</span></div>
+    <div class="bcard"><span class="bpole">Mobilisation — Secteur Privé</span><p class="bname">Igouba KOLANI</p><p class="btit">Passeur entre le Salariat et la Liberté</p><p class="bmis">Accompagne les cadres d'entreprises à franchir le pas de l'engagement citoyen. Maximum 10% des candidats — la révolution est celle de la base.</p><span class="bkpi">📊 300+ salariés recrutés</span></div>
+    <div class="bcard"><span class="bpole">Mobilisation — Élections Locales</span><p class="bname">Ishma YAPAUD</p><p class="btit">Général de l'Offensive Électorale 2028</p><p class="bmis">Prépare et coordonne la participation aux élections locales de septembre 2028. Son succès conditionne la présidentielle de 2030.</p><span class="bkpi">📊 14+ listes déposées · 200+ candidats formés</span></div>
+    <div class="bcard"><span class="bpole">Éducation — Agriculture</span><p class="bname">Danielle GOIN</p><p class="btit">Ambassadrice de la Révolution Rurale</p><p class="bmis">Porte Bitcoin dans les champs de cacao, de café, d'anacarde. 20–25% des candidats LFA doivent être des agriculteurs.</p><span class="bkpi">📊 14+ coopératives · 500+ hectares</span></div>
+    <div class="bcard"><span class="bpole">Éducation — Sports & Loisirs</span><p class="bname">Jean-Prisca Yao NGATTA</p><p class="btit">Bâtisseur de la Fraternité Active</p><p class="bmis">Construit les liens entre militants à travers le sport et les loisirs. Une révolution heureuse est une révolution durable.</p><span class="bkpi">📊 20+ événements sportifs/an · 7+ clubs LFA</span></div>
+    <div class="bcard"><span class="bpole">Emploi — Réalisation des Projets</span><p class="bname">Herman Kouassi KOFFI</p><p class="btit">Concrétisateur de Rêves</p><p class="bmis">Transforme les business plans en entreprises réelles. La liberté financière n'est pas un slogan — c'est un portefeuille d'investissements.</p><span class="bkpi">📊 300+ projets · 1,5 Md FCFA · 500+ emplois</span></div>
+  </div>
+</div>
+
+<!-- CALENDRIER -->
+<div id="sec-calendrier" class="sec">
+  <div class="sh"><span class="sh-eye">Chapitre XIV-C</span><h2 class="sh-t">Calendrier Stratégique<br><em>La Révolution Trimestre par Trimestre</em></h2><div class="sh-line"></div></div>
+  <div class="bc"><h3>Feuille de Route — Trimestre par Trimestre</h3>
+    <table class="tbl" style="margin-top:16px"><thead><tr><th>Période</th><th>Action LFA</th><th>Indicateur</th></tr></thead><tbody>
+      <tr><td>Q1–Q2 2026</td><td>Tournée écoute · Recrutement & formation 1800 cadres</td><td style="color:var(--vc)">6 coordinateurs · 150 cadres</td></tr>
+      <tr><td>Q3–Q4 2026</td><td>Alliances PPA-CI & PDCI · Financement Phase 1</td><td style="color:var(--vc)">30 Mds FCFA mobilisés</td></tr>
+      <tr><td>Q1–Q2 2027</td><td>Convention désignation candidat · 1M+ personnes rencontrées</td><td style="color:var(--oc)">Candidat désigné</td></tr>
+      <tr><td>Q3–Q4 2027</td><td>Débats 20 villes · Médias massifs · 60 Mds FCFA</td><td style="color:var(--oc)">35–40% intentions</td></tr>
+      <tr><td>Q1–Q2 2028</td><td>Sélection 500+ candidats · Campagne intensive</td><td style="color:var(--orc)">300+ communes LFA</td></tr>
+      <tr class="thl"><td>Sept. 2028</td><td>MUNICIPALES-RÉGIONALES</td><td>120–150 maires élus</td></tr>
+      <tr><td>2029</td><td>Formation élus · Mobilisation présidentielle</td><td style="color:var(--orc)">Ajustements stratégiques</td></tr>
+      <tr class="thl"><td>Oct. 2030</td><td>PRÉSIDENTIELLE DE LA RUPTURE</td><td>45–50% — Victoire 1er tour</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- VIDÉOTHÈQUE -->
+<div id="sec-videos" class="sec">
+  <div class="sh"><span class="sh-eye">5 Déclarations Solennelles · Octobre 2025</span><h2 class="sh-t">Vidéothèque LFA-CI<br><em>Les Déclarations qui ont tout changé</em></h2><div class="sh-line"></div><p class="sh-sub">275 056 vues cumulées · Budget communication : zéro franc · La légitimité du message prime sur le budget de diffusion.</p></div>
+
+  <div style="background:linear-gradient(135deg,rgba(29,185,84,.08),rgba(212,175,55,.05));border:1px solid var(--bor);border-radius:20px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px">
+    <span style="font-size:.87rem;color:rgba(255,255,255,.6);font-style:italic">Total vues cumulées · Chaîne YouTube LFA TV · Au 13 Mars 2026</span>
+    <span style="font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--vc),var(--oc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">275 056 vues</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+
+    <!-- SÉPARATEUR DÉCLARATIONS SOLENNELLES -->
+    <div style="grid-column:1/-1;display:flex;align-items:center;gap:14px;margin-bottom:4px">
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(29,185,84,.4),transparent)"></div>
+      <span style="font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--vc);background:rgba(29,185,84,.08);border:1px solid rgba(29,185,84,.25);border-radius:100px;padding:5px 16px;white-space:nowrap">⚡ Déclarations Solennelles</span>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(29,185,84,.4))"></div>
+    </div>
+
+    <!-- VIDÉO 1 — DÉCLARATION SOLENNELLE -->
+    <div class="vcard" style="border-color:rgba(29,185,84,.35)">
+      <div class="vthumb" style="background:linear-gradient(135deg,rgba(10,46,26,.95),rgba(29,185,84,.18))">
+        <a href="https://youtu.be/y6IUp3J58YA?si=HGsq0CiS9NP7wpGD" target="_blank">
+          <div class="vplay">▶</div>
+          <span class="vlbl">⚡ Déclaration Solennelle N°1 — 11 Oct. 2025</span>
+        </a>
+      </div>
+      <div class="vmeta">
+        <span class="vdate" style="color:var(--vc)">11 Octobre 2025 · DÉCLARATION SOLENNELLE N°1</span>
+        <p class="vtit">Déclaration Solennelle de report de la Présidentielle du 25 Oct. 2025 à Octobre 2026</p>
+        <p class="vanalyse">Premier acte de leadership clairvoyant : avant même le scrutin, Simplice KOUAMÉ identifie publiquement les conditions d'illégitimité constitutionnelle et demande formellement le report. Aucun acteur politique institutionnel n'avait eu ce courage de clarté à J-14. C'est la marque d'un stratège qui pense à l'histoire, non aux sondages.</p>
+        <div class="vviews">
+          <span>Vues : <strong>203 730</strong></span>
+          <a class="vbtn" href="https://youtu.be/y6IUp3J58YA?si=HGsq0CiS9NP7wpGD" target="_blank">▶ YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SÉPARATEUR ACTES POLITIQUES CITOYENS -->
+    <div style="grid-column:1/-1;display:flex;align-items:center;gap:14px;margin:8px 0 4px">
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(212,175,55,.4),transparent)"></div>
+      <span style="font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--oc);background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25);border-radius:100px;padding:5px 16px;white-space:nowrap">🏛️ Actes Politiques Citoyens</span>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.4))"></div>
+    </div>
+
+    <!-- VIDÉO 2 — ACTE POLITIQUE CITOYEN -->
+    <div class="vcard" style="border-color:rgba(212,175,55,.25)">
+      <div class="vthumb" style="background:linear-gradient(135deg,rgba(10,46,26,.95),rgba(212,175,55,.1))">
+        <a href="https://youtu.be/VoU_q_YjYRY?si=nnRBGl7dnAW49EA3" target="_blank">
+          <div class="vplay" style="border-color:var(--oc);background:rgba(212,175,55,.15)">▶</div>
+          <span class="vlbl" style="color:var(--oc)">🏛️ Acte Politique Citoyen — Audience Royale</span>
+        </a>
+      </div>
+      <div class="vmeta">
+        <span class="vdate" style="color:var(--oc)">19 Octobre 2025 · ACTE POLITIQUE CITOYEN N°1</span>
+        <p class="vtit">Audience Royale auprès de Sa Majesté AMON N'douffou V, Roi du SANWI — Rapprochement RHDP / Front Commun PDCI / PPA-CI</p>
+        <p class="vanalyse">Un acte diplomatique inédit dans l'histoire politique ivoirienne moderne : solliciter la médiation royale traditionnelle pour un rapprochement entre camps adverses. Simplice KOUAMÉ incarne ici le Pilier II de sa Vision — le Conseil Suprême des Rois comme pouvoir constitutionnel. Il ne parle pas de tradition : il la pratique.</p>
+        <div class="vviews">
+          <span>Vues : <strong>11 275</strong></span>
+          <a class="vbtn" href="https://youtu.be/VoU_q_YjYRY?si=nnRBGl7dnAW49EA3" target="_blank" style="color:var(--oc);border-color:rgba(212,175,55,.35)">▶ YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDÉO 3 — ACTE POLITIQUE CITOYEN -->
+    <div class="vcard" style="border-color:rgba(212,175,55,.25)">
+      <div class="vthumb" style="background:linear-gradient(135deg,rgba(10,46,26,.95),rgba(212,175,55,.08))">
+        <a href="https://youtu.be/Flgb0Rsj3ps?si=ZUwvCehQ-x-th29k" target="_blank">
+          <div class="vplay" style="border-color:var(--oc);background:rgba(212,175,55,.15)">▶</div>
+          <span class="vlbl" style="color:var(--oc)">🏛️ Acte Politique Citoyen — Lettre Ouverte Opposition</span>
+        </a>
+      </div>
+      <div class="vmeta">
+        <span class="vdate" style="color:var(--oc)">22 Octobre 2025 · ACTE POLITIQUE CITOYEN N°2</span>
+        <p class="vtit">Lettre ouverte aux candidats Dr AHOUA Don Mello, Dr Simone Ehivet GBAGBO, M. Jean-Louis BILLON — Demande de retrait de candidature</p>
+        <p class="vanalyse">Acte de courage politique rare : demander publiquement à des candidats de se retirer pour préserver la dignité du processus électoral. Simplice KOUAMÉ ne joue pas la politique des couleurs partisanes — il joue la politique de l'intérêt supérieur national. Un leader qui s'adresse à ses alliés potentiels avec exigence mérite la confiance.</p>
+        <div class="vviews">
+          <span>Vues : <strong>1 752</strong></span>
+          <a class="vbtn" href="https://youtu.be/Flgb0Rsj3ps?si=ZUwvCehQ-x-th29k" target="_blank" style="color:var(--oc);border-color:rgba(212,175,55,.35)">▶ YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDÉO 4 — ACTE POLITIQUE CITOYEN -->
+    <div class="vcard" style="border-color:rgba(212,175,55,.25)">
+      <div class="vthumb" style="background:linear-gradient(135deg,rgba(10,46,26,.95),rgba(212,175,55,.1))">
+        <a href="https://youtu.be/9avnEM7ncZs?si=5JIeryUza6HAMkEq" target="_blank">
+          <div class="vplay" style="border-color:var(--oc);background:rgba(212,175,55,.15)">▶</div>
+          <span class="vlbl" style="color:var(--oc)">🏛️ Acte Politique Citoyen — Lettre Ouverte SEM Ouattara</span>
+        </a>
+      </div>
+      <div class="vmeta">
+        <span class="vdate" style="color:var(--oc)">22 Octobre 2025 · ACTE POLITIQUE CITOYEN N°3</span>
+        <p class="vtit">Lettre ouverte à SEM Alassane OUATTARA — Report du Scrutin · et à Mme Henriette Adjoua LAGOU — Retrait de candidature</p>
+        <p class="vanalyse">L'acte le plus stratégiquement audacieux : s'adresser simultanément au Chef d'État en exercice et à une candidate marginale, dans la même lettre ouverte, avec le même niveau d'exigence constitutionnelle. C'est le signe d'un homme qui ne joue pas les jeux de rôles partisans — il parle à la Constitution, pas aux partis.</p>
+        <div class="vviews">
+          <span>Vues : <strong>1 758</strong></span>
+          <a class="vbtn" href="https://youtu.be/9avnEM7ncZs?si=5JIeryUza6HAMkEq" target="_blank" style="color:var(--oc);border-color:rgba(212,175,55,.35)">▶ YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SÉPARATEUR RETOUR DÉCLARATIONS SOLENNELLES -->
+    <div style="grid-column:1/-1;display:flex;align-items:center;gap:14px;margin:8px 0 4px">
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(255,107,0,.5),transparent)"></div>
+      <span style="font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--orc);background:rgba(255,107,0,.08);border:1px solid rgba(255,107,0,.3);border-radius:100px;padding:5px 16px;white-space:nowrap">⚡ Déclaration Solennelle — Historique</span>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,107,0,.5))"></div>
+    </div>
+
+    <!-- VIDÉO 5 — DÉCLARATION SOLENNELLE HISTORIQUE -->
+    <div class="vcard" style="border-color:rgba(255,107,0,.4);grid-column:1/-1">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0" class="vcard-inner">
+        <div class="vthumb" style="background:linear-gradient(135deg,rgba(10,46,26,.95),rgba(255,107,0,.2));padding-top:0;height:100%;min-height:180px;position:relative">
+          <a href="https://youtu.be/J6eFJhkLdB8?si=1Ixtn-q2mrHdKcKJ" target="_blank" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-decoration:none">
+            <div class="vplay" style="border-color:var(--orc);background:rgba(255,107,0,.3);width:72px;height:72px;font-size:1.8rem">▶</div>
+            <span class="vlbl" style="color:var(--orc);font-size:.65rem">⚡ DÉCLARATION SOLENNELLE N°2 — HISTORIQUE · 25 Oct. 2025</span>
+          </a>
+        </div>
+        <div class="vmeta" style="padding:20px 24px">
+          <span class="vdate" style="color:var(--orc);font-size:.65rem">25 Octobre 2025 · DÉCLARATION SOLENNELLE N°2 · JOUR DU SCRUTIN</span>
+          <p class="vtit" style="font-size:1rem;margin-bottom:10px">Déclaration Solennelle d'annulation du scrutin et Mise en place d'un Gouvernement National de Transition</p>
+          <p class="vanalyse">Le 25 octobre 2025, pendant que les urnes se remplissaient dans l'indifférence nationale, Simplice KOUAMÉ prononçait la déclaration la plus historique de l'opposition ivoirienne : l'annulation symbolique du scrutin et la proposition d'un Gouvernement National de Transition. 30 000 vues dès le premier jour — et 56 541 vues cumulées au 13 mars 2026 — preuve que la Côte d'Ivoire attendait cette voix. C'est ici que l'architecte est sorti du silence.</p>
+          <div class="vviews">
+            <span>Vues : <strong style="color:var(--orc);font-size:1.3rem">56 541</strong></span>
+            <a class="vbtn" href="https://youtu.be/J6eFJhkLdB8?si=1Ixtn-q2mrHdKcKJ" target="_blank" style="color:var(--orc);border-color:rgba(255,107,0,.4)">▶ YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:32px" class="notice">
+    <h4>Le Miracle de la Communication à Budget Zéro</h4>
+    <p>Le budget de communication officiel du gouvernement ivoirien pour les élections de 2025 s'élevait à plusieurs milliards de FCFA. Simplice KOUAMÉ a touché <strong style="color:var(--vc)">275 056 Ivoiriens</strong> avec un téléphone, une connexion internet, et la force brute de son argumentation.</p>
+    <p>C'est la preuve empirique et irréfutable que <strong>la légitimité du message prime sur le budget de diffusion</strong> — et que la révolution numérique a définitivement nivelé le terrain de jeu politique en Afrique.</p>
+  </div>
+  <div style="text-align:center;margin-top:28px">
+    <a href="https://youtube.com/@lfa-tv-h5z?si=CJp2mRyrA8auG-pf" target="_blank" class="btn-main" style="text-decoration:none;display:inline-flex;width:auto;padding:15px 36px">▶ &nbsp;S'abonner à la Chaîne YouTube LFA TV</a>
+  </div>
+</div>
+
+<!-- TÉLÉCHARGEMENT -->
+<div id="sec-download" class="sec">
+  <div class="sh"><span class="sh-eye">Accès à l'Essai Complet · Méthode CORE · Édition Définitive Mars 2026</span><h2 class="sh-t">Télécharger l'Essai<br><em>L'Architecte d'une Révolution Silencieuse</em></h2><div class="sh-line"></div><p class="sh-sub">~50 pages · 3 Formules d'Engagement · Paiement sécurisé Wave Business · Livraison instantanée WhatsApp</p></div>
+
+  <div class="dl-wrap" style="max-width:820px">
+    <!-- STEP 0 : CHOIX FORMULE -->
+    <div id="dlStep0">
+      <p style="text-align:center;font-size:2rem;margin-bottom:8px">📖</p>
+      <p style="text-align:center;font-size:1.2rem;font-weight:800;color:var(--bl);margin-bottom:4px">Choisissez votre Formule d'Engagement</p>
+      <p style="text-align:center;font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:28px;font-style:italic">Méthode CORE · Choix → Ordre → Règlement → Engagement · 3 niveaux, 1 seul essai, 3 actes politiques distincts</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:28px">
+        <div id="f1" onclick="selectFormule(1)" style="background:var(--cd);border:2px solid rgba(29,185,84,.25);border-radius:20px;padding:24px 20px;cursor:pointer;transition:all .3s;text-align:center;position:relative">
+          <div style="font-size:2rem;margin-bottom:10px">🤝</div>
+          <div style="font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--vc);margin-bottom:8px">Formule 1</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--bl);margin-bottom:6px;line-height:1.3">Lecteur<br>Sympathisant LFA-CI</div>
+          <div style="font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,var(--vc),var(--oc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:12px 0">2 500 F</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:14px">Essai PDF complet<br>Newsletter LFA-CI incluse<br>Acte de soutien citoyen</div>
+          <div class="fbadge" style="display:none;position:absolute;top:10px;right:10px;background:var(--vc);color:var(--bg);font-size:.55rem;font-weight:800;letter-spacing:.1em;padding:3px 10px;border-radius:100px;text-transform:uppercase">✓ Sélectionné</div>
+        </div>
+        <div id="f2" onclick="selectFormule(2)" style="background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(29,185,84,.04));border:2px solid rgba(212,175,55,.4);border-radius:20px;padding:24px 20px;cursor:pointer;transition:all .3s;text-align:center;position:relative">
+          <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--or),var(--oc));color:var(--bg);font-size:.55rem;font-weight:800;letter-spacing:.1em;padding:4px 14px;border-radius:100px;text-transform:uppercase;white-space:nowrap">⭐ Le Plus Choisi</div>
+          <div style="font-size:2rem;margin-bottom:10px">🌍</div>
+          <div style="font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--oc);margin-bottom:8px">Formule 2</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--bl);margin-bottom:6px;line-height:1.3">Lecteur Adhérent<br>Statutaire LFA-CI</div>
+          <div style="font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,var(--or),var(--oc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:12px 0">5 000 F</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:14px">Essai PDF + Carte Adhérent<br>Accès réseau LFA-CI local<br>Invitations événements LFA</div>
+          <div class="fbadge" style="display:none;position:absolute;top:10px;right:10px;background:var(--oc);color:var(--bg);font-size:.55rem;font-weight:800;letter-spacing:.1em;padding:3px 10px;border-radius:100px;text-transform:uppercase">✓ Sélectionné</div>
+        </div>
+        <div id="f3" onclick="selectFormule(3)" style="background:linear-gradient(135deg,rgba(255,107,0,.08),rgba(212,175,55,.04));border:2px solid rgba(255,107,0,.3);border-radius:20px;padding:24px 20px;cursor:pointer;transition:all .3s;text-align:center;position:relative">
+          <div style="font-size:2rem;margin-bottom:10px">🏛️</div>
+          <div style="font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orc);margin-bottom:8px">Formule 3</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--bl);margin-bottom:6px;line-height:1.3">Lecteur Cadre<br>Actif LFA-CI</div>
+          <div style="font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,var(--ora),var(--orc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:12px 0">10 000 F</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:14px">Essai PDF + Carte Cadre<br>Réseau des 509 Leaders<br>Formations ChallengeFinancier™</div>
+          <div class="fbadge" style="display:none;position:absolute;top:10px;right:10px;background:var(--orc);color:var(--bg);font-size:.55rem;font-weight:800;letter-spacing:.1em;padding:3px 10px;border-radius:100px;text-transform:uppercase">✓ Sélectionné</div>
+        </div>
+      </div>
+      <div id="formuleResume" style="display:none;background:rgba(29,185,84,.06);border:1px solid rgba(29,185,84,.2);border-radius:14px;padding:14px 20px;margin-bottom:20px;text-align:center">
+        <span style="font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--vc)">Formule sélectionnée</span>
+        <p id="formuleResumeText" style="font-size:1rem;font-weight:800;color:var(--bl);margin:6px 0 0"></p>
+      </div>
+      <button class="btn-main" id="btnContinuer" onclick="goToForm()" style="display:none">Continuer → Remplir mes informations</button>
+    </div>
+
+    <!-- STEP 1 : FORMULAIRE -->
+    <div class="dl-box" id="dlBox" style="display:none">
+      <div id="dlStep1">
+        <div id="formuleTag" style="text-align:center;margin-bottom:20px"></div>
+        <p style="text-align:center;font-size:1rem;font-weight:800;color:var(--bl);margin-bottom:4px">Essai Complet — Édition Définitive Mars 2026</p>
+        <p style="text-align:center;font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:22px">~50 pages · PDF haute résolution</p>
+        <label class="flbl">Prénom et Nom complet</label>
+        <input class="finput" type="text" id="dlNom" placeholder="Ex. : Kouassi Jean-Baptiste">
+        <label class="flbl">Numéro WhatsApp (livraison)</label>
+        <input class="finput" type="tel" id="dlWa" placeholder="Ex. : +225 07 12 34 56 78">
+        <label class="flbl">Ville / Région</label>
+        <input class="finput" type="text" id="dlVille" placeholder="Ex. : Abidjan · Bouaké · Toumodi">
+        <label class="flbl">Format souhaité</label>
+        <select class="fsel" id="dlFormat">
+          <option value="both">PDF + DOCX (L'Architecte d'une Révolution Silencieuse)</option>
+        </select>
+        <div class="optin">
+          <label class="oprow"><input type="checkbox" id="chk1"> Recevoir la newsletter stratégique LFA-CI</label>
+          <label class="oprow"><input type="checkbox" id="chk2"> Être contacté pour rejoindre le réseau des 509 Leaders Pro-Bitcoin</label>
+        </div>
+        <button class="btn-main" id="btnPayer" onclick="showDlStep2()">🛒 Procéder au Paiement Wave</button>
+        <button class="btn-sec" onclick="showDocModal('bc')">📄 Générer Bon de Commande</button>
+        <button class="btn-sec" style="margin-top:4px;color:rgba(255,255,255,.3);border-color:rgba(255,255,255,.1)" onclick="retourFormules()">← Changer de formule</button>
+      </div>
+
+      <div id="dlStep2" style="display:none">
+        <div id="waveInstructions"></div>
+        <div class="qrbox">
+          <span id="qrMontant" class="qramt"></span>
+          <img src="https://i.ibb.co/zVcnPS8d/Wave-Formation.png" alt="QR Wave" style="width:140px;height:140px;border-radius:10px;border:3px solid #1DB954">
+          <p class="qrnote">N° Wave VoteConnect Formation :<br><strong style="color:#0A2E1A">+225 07 67 81 43 33</strong><br>Montant exact : <strong id="qrMontant2"></strong></p>
+        </div>
+        <div class="infobox"><strong>📲 Après paiement :</strong> Envoyez votre capture d'écran Wave + numéro de commande au <strong>+225 07 67 56 09 08</strong> (WhatsApp VoteConnect). Livraison sous 15 minutes.</div>
+        <button class="btn-main btn-wa" onclick="sendWa()">📲 Envoyer la Confirmation WhatsApp</button>
+        <button class="btn-sec" onclick="showDocModal('facture')">🧾 Générer ma Facture Officielle</button>
+        <button class="btn-sec" onclick="showDlOk()">✅ J'ai effectué le paiement</button>
+      </div>
+
+      <div id="dlStep3" style="display:none">
+        <div class="ok-box">
+          <span class="ok-icon">⏳</span>
+          <p class="ok-title">Paiement enregistré — En attente de validation</p>
+          <p class="ok-desc">Votre confirmation WhatsApp a été transmise à VoteConnect. Un code d'activation à 4 chiffres vous sera communiqué par l'Administrateur après vérification de votre paiement.</p>
+          <!-- BLOC CODE AFFICHÉ AU CLIENT -->
+          <div style="background:linear-gradient(135deg,rgba(29,185,84,.1),rgba(212,175,55,.06));border:1px solid rgba(29,185,84,.3);border-radius:16px;padding:20px 24px;margin-bottom:20px">
+            <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--vc);margin-bottom:8px">🔐 Votre Référence de Commande</div>
+            <div id="refCommande" style="font-size:1.6rem;font-weight:900;letter-spacing:.25em;color:var(--bl);font-family:monospace;margin-bottom:6px"></div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.5);line-height:1.6">Communiquez cette référence à VoteConnect via WhatsApp.<br>L'Administrateur vous enverra en retour votre <strong style="color:var(--vc)">code d'activation à 4 chiffres</strong> pour débloquer le téléchargement.</div>
+          </div>
+          <!-- SAISIE DU CODE D'ACTIVATION -->
+          <div style="background:var(--cd);border:1px solid var(--br);border-radius:16px;padding:20px 24px;margin-bottom:16px">
+            <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--oc);margin-bottom:12px">🔑 Saisir le Code d'Activation</div>
+            <div style="display:flex;gap:10px;justify-content:center;margin-bottom:14px" id="codeInputs">
+              <input type="text" maxlength="1" class="finput" id="c1" style="width:56px;height:56px;text-align:center;font-size:1.6rem;font-weight:900;font-family:monospace;padding:0;border-radius:12px;color:var(--vc)" oninput="moveNext(this,'c2')" onkeydown="moveBack(event,this,'')">
+              <input type="text" maxlength="1" class="finput" id="c2" style="width:56px;height:56px;text-align:center;font-size:1.6rem;font-weight:900;font-family:monospace;padding:0;border-radius:12px;color:var(--vc)" oninput="moveNext(this,'c3')" onkeydown="moveBack(event,this,'c1')">
+              <input type="text" maxlength="1" class="finput" id="c3" style="width:56px;height:56px;text-align:center;font-size:1.6rem;font-weight:900;font-family:monospace;padding:0;border-radius:12px;color:var(--vc)" oninput="moveNext(this,'c4')" onkeydown="moveBack(event,this,'c2')">
+              <input type="text" maxlength="1" class="finput" id="c4" style="width:56px;height:56px;text-align:center;font-size:1.6rem;font-weight:900;font-family:monospace;padding:0;border-radius:12px;color:var(--vc)" oninput="moveNext(this,null)" onkeydown="moveBack(event,this,'c3')">
+            </div>
+            <div id="codeErrMsg" style="display:none;font-size:.78rem;color:var(--orc);text-align:center;margin-bottom:10px">❌ Code incorrect. Vérifiez et réessayez.</div>
+            <button class="btn-main" onclick="verifierCode()" id="btnVerifCode">🔓 Valider le Code &amp; Débloquer le Téléchargement</button>
+          </div>
+          <!-- BLOC TÉLÉCHARGEMENT — caché jusqu'à validation -->
+          <div id="dlBtnWrap" style="display:none">
+            <div style="background:rgba(29,185,84,.08);border:1px solid rgba(29,185,84,.25);border-radius:14px;padding:16px 20px;margin-bottom:14px">
+              <div style="font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--vc);margin-bottom:6px">✅ Code validé — Accès débloqué !</div>
+              <div class="ok-vip" style="margin-bottom:12px"><strong>Bienvenue dans la Révolution Silencieuse.</strong><br>Vous recevrez également les prochaines déclarations solennelles LFA TV en avant-première.</div>
+            </div>
+            <a id="dlEssaiBtn" class="btn-main" href="https://drive.google.com/uc?export=download&id=1MMpIiiAF56BKKEyW5DORRNoezGdqnUwk" target="_blank" style="text-decoration:none;margin-bottom:10px;display:inline-flex" onclick="handleDownload()">📥 Télécharger mon Essai — PDF + DOCX</a>
+          </div>
+          <div id="dlDoneMsg" style="display:none;background:rgba(29,185,84,.08);border:1px solid rgba(29,185,84,.2);border-radius:12px;padding:12px 16px;font-size:.82rem;color:rgba(255,255,255,.7);margin-bottom:12px">✅ <strong style="color:var(--vc)">Téléchargement effectué. Bonne lecture, Architecte.</strong></div>
+          <button class="btn-main" onclick="showDocModal('facture')" style="background:linear-gradient(135deg,var(--or),var(--oc),var(--or));background-size:200%;margin-top:8px">🧾 Télécharger ma Facture</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DOC MODAL -->
+<div id="docModal" style="display:none" onclick="closeDocModal(event)">
+  <div class="doc-wrap" onclick="event.stopPropagation()">
+    <div class="doc-sheet" id="docSheet"></div>
+    <div class="doc-acts">
+      <button class="btn-print" onclick="window.print()">🖨️ Imprimer / PDF</button>
+      <button class="btn-close-doc" onclick="closeDocModal()">✕ Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- FLOAT -->
+<div class="float-w">
+  <div class="float-panel" id="floatPanel">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--br)">
+      <img src="https://i.ibb.co/VWp3SGvq/Simplice-KOUAME.png" alt="Simplice KOUAMÉ" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--vc);flex-shrink:0">
+      <div style="flex:1"><p class="fp-name">Coach Morgan's</p><span class="fp-role">Président LFA-CI</span></div>
+      <img src="https://i.ibb.co/wF86rp2n/Logo-LFA-CI.png" alt="Logo LFA-CI" style="width:36px;height:36px;object-fit:contain;flex-shrink:0">
+    </div>
+    <div class="fp-links">
+      <a class="fp-link" href="https://wa.me/2250767560908" target="_blank">💬 WhatsApp Direct</a>
+      <a class="fp-link" href="https://www.challengefinancier.com" target="_blank">🌐 ChallengeFinancier.com</a>
+      <a class="fp-link" href="tel:+2250767560908">📞 +225 07 67 56 09 08</a>
+      <span class="fp-link" onclick="showSection('download')">📥 Télécharger l'Essai</span>
+    </div>
+  </div>
+  <!-- Logo LFA en cercle au-dessus -->
+  <div class="float-logo-ring">
+    <img src="https://i.ibb.co/wF86rp2n/Logo-LFA-CI.png" alt="LFA-CI">
+  </div>
+  <!-- Photo Simplice comme bouton -->
+  <button class="float-tog" onclick="toggleFloat()" title="Contact & Liens">
+    <img src="https://i.ibb.co/VWp3SGvq/Simplice-KOUAME.png" alt="Simplice KOUAMÉ">
+  </button>
+</div>
+
+<footer>
+  <span class="flogo">SIMPLICE KOUAMÉ · LFA-CI</span>
+  <p>L'Architecte d'une Révolution Silencieuse · Édition Définitive Mars 2026</p>
+  <p style="margin-top:6px">VoteConnect SARL · Abidjan Cocody-Angré Djibi 3 — Côte d'Ivoire</p>
+  <div class="flinks">
+    <a href="https://www.challengefinancier.com" target="_blank">ChallengeFinancier.com</a>
+    <a href="https://wa.me/2250767560908" target="_blank">WhatsApp</a>
+    <a href="tel:+2250767560908">+225 07 67 56 09 08</a>
+    <a href="https://www.youtube.com/@LFA-CI" target="_blank">YouTube LFA-CI</a>
+  </div>
+  <p style="margin-top:20px;font-size:.7rem;opacity:.3">© 2026 VoteConnect SARL · RCCM CI-ABJ-03-2025-B12-03666 · Tous droits réservés</p>
+</footer>
+
+<script>
+var ESSAI_URL='https://drive.google.com/uc?export=download&id=1MMpIiiAF56BKKEyW5DORRNoezGdqnUwk';
+var WAVE_QR='https://i.ibb.co/zVcnPS8d/Wave-Formation.png';
+var PHOTO_SK='https://i.ibb.co/VWp3SGvq/Simplice-KOUAME.png';
+var LOGO_LFA='https://i.ibb.co/wF86rp2n/Logo-LFA-CI.png';
+var _downloaded=false;
+
+/* ════════════════════════════════════════════════════
+   CONNEXION GOOGLE SHEETS CF-DB v2.0
+   VoteConnect SARL — Essai Autobiographique · LFA-CI
+   ════════════════════════════════════════════════════ */
+var GS_URL='https://script.google.com/macros/s/AKfycbznz5aBNSS5FDj6kvEtIcr11UQ-JptlQWaTFgzsW4XvbDO3z57qEsiiZ0c3H6u0-pLG/exec';
+
+function sendToGSheets(action, data) {
+  if (!GS_URL) return;
+  var payload = Object.assign({
+    action: action,
+    source: 'ESSAI_AUTOBIOGRAPHIQUE',
+    timestamp: new Date().toISOString()
+  }, data);
+  fetch(GS_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).then(function(r){ return r.json(); })
+    .then(function(res){ console.log('[GSheets Essai] ' + action + ' →', res); })
+    .catch(function(err){
+      console.warn('[GSheets Essai] Échec — sauvegarde locale', err);
+      var queue = JSON.parse(localStorage.getItem('essai_gs_queue') || '[]');
+      queue.push(payload);
+      localStorage.setItem('essai_gs_queue', JSON.stringify(queue));
+    });
+}
+
+// Rejoue la file d'attente locale au chargement
+(function flushQueue(){
+  setTimeout(function(){
+    var queue = JSON.parse(localStorage.getItem('essai_gs_queue') || '[]');
+    if (!queue.length) return;
+    var remaining = [];
+    queue.forEach(function(p){
+      fetch(GS_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(p) })
+        .catch(function(){ remaining.push(p); });
+    });
+    setTimeout(function(){ localStorage.setItem('essai_gs_queue', JSON.stringify(remaining)); }, 3000);
+  }, 2000);
+})();
+
+// VIDÉOS
+var videos=[
+  {url:'https://youtu.be/y6IUp3J58YA?si=HGsq0CiS9NP7wpGD',titre:'Déclaration de report de la Présidentielle',date:'11 Oct. 2025',vues:'203 730'},
+  {url:'https://youtu.be/VoU_q_YjYRY?si=nnRBGl7dnAW49EA3',titre:'Audience Royale à Krindjabo — Sa Majesté AMON N\'douffou V',date:'19 Oct. 2025',vues:'11 275'},
+  {url:'https://youtu.be/Flgb0Rsj3ps?si=ZUwvCehQ-x-th29k',titre:'Lettre ouverte — Don Mello, Simone Gbagbo, Billon',date:'22 Oct. 2025',vues:'1 752'},
+  {url:'https://youtu.be/9avnEM7ncZs?si=5JIeryUza6HAMkEq',titre:'Lettre ouverte — SEM Ouattara & Mme Lagou',date:'22 Oct. 2025',vues:'1 758'},
+  {url:'https://youtu.be/J6eFJhkLdB8?si=1Ixtn-q2mrHdKcKJ',titre:'Déclaration Solennelle d\'annulation du scrutin',date:'25 Oct. 2025',vues:'56 541'}
+];
+
+// FORMULES
+var _formule={num:0,label:'',prix:0,emoji:''};
+var formules={
+  1:{label:'Lecteur Sympathisant LFA-CI',prix:2500,emoji:'🤝'},
+  2:{label:'Lecteur Adhérent Statutaire LFA-CI',prix:5000,emoji:'🌍'},
+  3:{label:'Lecteur Cadre Actif LFA-CI',prix:10000,emoji:'🏛️'}
+};
+
+function selectFormule(n){
+  [1,2,3].forEach(function(i){
+    var c=document.getElementById('f'+i);
+    var b=c.querySelector('.fbadge');
+    if(i===1) c.style.borderColor='rgba(29,185,84,.25)';
+    else if(i===2) c.style.borderColor='rgba(212,175,55,.4)';
+    else c.style.borderColor='rgba(255,107,0,.3)';
+    b.style.display='none';
+  });
+  var sel=document.getElementById('f'+n);
+  var badge=sel.querySelector('.fbadge');
+  if(n===1) sel.style.borderColor='rgba(29,185,84,.8)';
+  else if(n===2) sel.style.borderColor='rgba(212,175,55,1)';
+  else sel.style.borderColor='rgba(255,107,0,.9)';
+  badge.style.display='block';
+  _formule={num:n,label:formules[n].label,prix:formules[n].prix,emoji:formules[n].emoji};
+  var res=document.getElementById('formuleResume');
+  var txt=document.getElementById('formuleResumeText');
+  res.style.display='block';
+  txt.innerHTML=formules[n].emoji+' '+formules[n].label+' — <span style="color:var(--vc)">'+formules[n].prix.toLocaleString('fr-FR')+' FCFA</span>';
+  document.getElementById('btnContinuer').style.display='flex';
+}
+
+function goToForm(){
+  if(!_formule.num){alert('Veuillez sélectionner une formule.');return;}
+  document.getElementById('dlStep0').style.display='none';
+  document.getElementById('dlBox').style.display='block';
+  var colors={1:'rgba(29,185,84,.15)',2:'rgba(212,175,55,.1)',3:'rgba(255,107,0,.1)'};
+  var bc={1:'rgba(29,185,84,.4)',2:'rgba(212,175,55,.4)',3:'rgba(255,107,0,.4)'};
+  var tc={1:'var(--vc)',2:'var(--oc)',3:'var(--orc)'};
+  var n=_formule.num;
+  document.getElementById('formuleTag').innerHTML='<div style="display:inline-flex;align-items:center;gap:10px;background:'+colors[n]+';border:1px solid '+bc[n]+';border-radius:100px;padding:8px 20px;margin-bottom:4px"><span style="font-size:1.2rem">'+_formule.emoji+'</span><span style="font-size:.88rem;font-weight:800;color:var(--bl)">'+_formule.label+'</span><span style="font-size:1.2rem;font-weight:900;color:'+tc[n]+'">'+_formule.prix.toLocaleString('fr-FR')+' F</span></div>';
+  document.getElementById('btnPayer').textContent='🛒 Procéder au Paiement Wave — '+_formule.prix.toLocaleString('fr-FR')+' FCFA';
+}
+
+function retourFormules(){
+  document.getElementById('dlBox').style.display='none';
+  document.getElementById('dlStep0').style.display='block';
+}
+
+// NAVIGATION
+function showSection(id){
+  document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('active')});
+  document.querySelectorAll('.ntab').forEach(function(t){t.classList.remove('active')});
+  var sec=document.getElementById('sec-'+id);
+  if(sec) sec.classList.add('active');
+  var tab=document.querySelector('[data-sec="'+id+'"]');
+  if(tab) tab.classList.add('active');
+  window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop-10,behavior:'smooth'});
+}
+document.querySelectorAll('.ntab').forEach(function(btn){
+  btn.addEventListener('click',function(){showSection(this.getAttribute('data-sec'));});
+});
+
+// ACCORDION
+function toggleAcc(el){el.classList.toggle('open');}
+
+// FLOAT
+function toggleFloat(){document.getElementById('floatPanel').classList.toggle('open');}
+
+// DOWNLOAD STEPS
+function showDlStep2(){
+  var nom=document.getElementById('dlNom').value.trim();
+  var wa=document.getElementById('dlWa').value.trim();
+  if(!nom||!wa){alert('Veuillez renseigner votre nom et votre numéro WhatsApp.');return;}
+  var p=_formule.prix||2500;
+  var lbl=_formule.label||'Lecteur Sympathisant LFA-CI';
+  document.getElementById('qrMontant').textContent=p.toLocaleString('fr-FR')+' FCFA';
+  document.getElementById('qrMontant2').textContent=p.toLocaleString('fr-FR')+' FCFA';
+  document.getElementById('waveInstructions').innerHTML='<p style="font-size:.8rem;line-height:1.7;color:rgba(255,255,255,.7);margin-bottom:16px">Scannez le QR Code Wave pour votre paiement de <strong style="color:var(--vc)">'+p.toLocaleString('fr-FR')+' FCFA</strong> — Formule <em>'+lbl+'</em>. Livraison sous 15 minutes sur WhatsApp.</p>';
+  document.getElementById('dlStep1').style.display='none';
+  document.getElementById('dlStep2').style.display='block';
+}
+// Génère un code admin à 4 chiffres et une référence commande
+var _codeAdmin='';
+var _refCmd='';
+function genCodes(){
+  _codeAdmin=String(Math.floor(1000+Math.random()*9000));
+  var ts=Date.now().toString().slice(-5);
+  _refCmd='VTC-'+ts;
+}
+
+function showDlOk(){
+  genCodes();
+  document.getElementById('dlStep2').style.display='none';
+  document.getElementById('dlStep3').style.display='block';
+  document.getElementById('refCommande').textContent=_refCmd;
+  // Envoie automatiquement le code à l'admin via WhatsApp
+  var nom=document.getElementById('dlNom')?document.getElementById('dlNom').value.trim()||'Client':'Client';
+  var wa=document.getElementById('dlWa')?document.getElementById('dlWa').value.trim()||'':'';
+  var p=_formule.prix||2500;
+  var lbl=_formule.label||'Sympathisant';
+  var msg=encodeURIComponent(
+    '🔐 NOUVEAU PAIEMENT TCL — CODE ADMIN\n\n'+
+    'Référence : '+_refCmd+'\n'+
+    'Client : '+nom+'\n'+
+    'WhatsApp client : '+wa+'\n'+
+    'Formule : '+lbl+'\n'+
+    'Montant : '+p.toLocaleString('fr-FR')+' FCFA\n\n'+
+    '👉 CODE D\'ACTIVATION À COMMUNIQUER AU CLIENT : '+_codeAdmin+'\n\n'+
+    'Après vérification Wave, transmettez ce code au client pour débloquer son téléchargement.'
+  );
+  window.open('https://wa.me/2250767560908?text='+msg,'_blank');
+  // ── ENVOI GSHEETS — Nouvel adhérent LFA-CI ──
+  sendToGSheets('newAdhesion', {
+    ref_commande: _refCmd,
+    nom_complet: nom,
+    phone: wa,
+    formule: lbl,
+    montant_fcfa: p,
+    statut: 'en_attente_paiement',
+    code_admin: _codeAdmin,
+    source_adhesion: 'Essai_Autobiographique_LFA-CI',
+    role: 'sympathisant_lfa'
+  });
+}
+
+function moveNext(el,nextId){
+  el.value=el.value.replace(/[^0-9]/g,'');
+  if(el.value&&nextId) document.getElementById(nextId).focus();
+}
+function moveBack(e,el,prevId){
+  if(e.key==='Backspace'&&!el.value&&prevId) document.getElementById(prevId).focus();
+}
+
+function verifierCode(){
+  var saisi=[
+    document.getElementById('c1').value,
+    document.getElementById('c2').value,
+    document.getElementById('c3').value,
+    document.getElementById('c4').value
+  ].join('');
+  if(saisi.length<4){
+    document.getElementById('codeErrMsg').style.display='block';
+    document.getElementById('codeErrMsg').textContent='⚠️ Veuillez saisir les 4 chiffres du code.';
+    return;
+  }
+  if(saisi===_codeAdmin){
+    document.getElementById('codeErrMsg').style.display='none';
+    document.getElementById('codeInputs').style.opacity='.4';
+    document.getElementById('btnVerifCode').style.display='none';
+    document.getElementById('dlBtnWrap').style.display='block';
+  } else {
+    document.getElementById('codeErrMsg').style.display='block';
+    document.getElementById('codeErrMsg').textContent='❌ Code incorrect. Vérifiez auprès de VoteConnect et réessayez.';
+    ['c1','c2','c3','c4'].forEach(function(id){document.getElementById(id).value='';});
+    document.getElementById('c1').focus();
+  }
+}
+
+function handleDownload(){
+  // ── ENVOI GSHEETS — Téléchargement effectif = Adhésion confirmée ──
+  var nom=document.getElementById('dlNom')?document.getElementById('dlNom').value.trim():'';
+  var wa=document.getElementById('dlWa')?document.getElementById('dlWa').value.trim():'';
+  sendToGSheets('confirmAdhesion', {
+    ref_commande: _refCmd,
+    nom_complet: nom,
+    phone: wa,
+    formule: _formule.label || '',
+    montant_fcfa: _formule.prix || 2500,
+    statut: 'adhesion_confirmee',
+    essai_telecharge: true,
+    date_adhesion: new Date().toISOString().slice(0,10),
+    role: 'adherent_lfa_ci'
+  });
+  setTimeout(function(){
+    _downloaded=true;
+    var w=document.getElementById('dlBtnWrap');
+    if(w) w.style.display='none';
+    var d=document.getElementById('dlDoneMsg');
+    if(d) d.style.display='block';
+  },2000);
+}
+function sendWa(){
+  var nom=document.getElementById('dlNom').value.trim()||'Client';
+  var fmt=document.getElementById('dlFormat');
+  var fmtVal=fmt?fmt.options[fmt.selectedIndex].text:'PDF';
+  var p=_formule.prix||2500;
+  var lbl=_formule.label||'Lecteur Sympathisant LFA-CI';
+  var msg=encodeURIComponent('Bonjour VoteConnect,\n\nJe viens d\'effectuer mon paiement Wave de '+p.toLocaleString('fr-FR')+' FCFA.\n\nFormule : '+lbl+'\nNom : '+nom+'\nFormat : '+fmtVal+'\n\nMerci de confirmer la livraison.');
+  window.open('https://wa.me/2250767560908?text='+msg,'_blank');
+}
+
+// DOC MODAL
+function showDocModal(type){
+  var nom=document.getElementById('dlNom')?document.getElementById('dlNom').value.trim()||'[Nom du Client]':'[Nom du Client]';
+  var wa=document.getElementById('dlWa')?document.getElementById('dlWa').value.trim()||'[WhatsApp]':'[WhatsApp]';
+  var ville=document.getElementById('dlVille')?document.getElementById('dlVille').value.trim()||'Abidjan':'Abidjan';
+  var fmt=document.getElementById('dlFormat');
+  var fmtVal=fmt?fmt.options[fmt.selectedIndex].text:'PDF haute résolution';
+  var prix=_formule.prix||2500;
+  var lbl=_formule.label||'Lecteur Sympathisant LFA-CI';
+  var emoji=_formule.emoji||'🤝';
+  var now=new Date();
+  var dateStr=now.toLocaleDateString('fr-FR',{year:'numeric',month:'long',day:'numeric'});
+  var pfx=type==='bc'?'BC':'FAC';
+  var num=pfx+'-VT-'+now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(Math.floor(Math.random()*900)+100);
+  var titre=type==='bc'?'BON DE COMMANDE':'FACTURE';
+  var h='<div class="doc-hdr"><div><div class="dlgt">VoteConnect SARL</div><div class="dlgs">Financement Politique et Accompagnement Electoral</div><div class="dlgs">Abidjan Cocody-Angré Djibi 3 — Côte d\'Ivoire</div><div class="dlgs">Tél : +225 07 67 56 09 08 | contact@challengefinancier.com</div></div><div class="dtb"><span class="dtbl">'+titre+'</span><span class="dtbn">'+num+'</span><span style="font-size:.7rem;color:rgba(255,255,255,.6);display:block">'+dateStr+'</span></div></div>';
+  h+='<div class="doc-meta"><div class="dmb"><h4>Émetteur</h4><p><strong>VoteConnect SARL</strong><br>RCCM : CI-ABJ-03-2025-B12-03666<br>Compte Contribuable : 2504848 N<br>Abidjan Cocody-Angré Djibi 3<br>Côte d\'Ivoire<br>Tél : +225 07 67 56 09 08</p></div><div class="dmb"><h4>Destinataire</h4><p><strong>'+nom+'</strong><br>'+ville+'<br>WhatsApp : '+wa+'<br>Date : '+dateStr+'</p></div></div>';
+  h+='<div class="dliv"><h4>Modalité de Livraison</h4><p>✅ Livraison numérique WhatsApp au '+wa+'<br>⏱ Délai : 15 minutes après confirmation Wave<br>📁 Format : '+fmtVal+'</p></div>';
+  h+='<table class="doc-items"><thead><tr><th>Désignation</th><th>Qté</th><th>P.U. FCFA</th><th>Total FCFA</th></tr></thead><tbody>';
+  h+='<tr><td>'+emoji+' Essai Autobiographique "L\'Architecte d\'une Révolution Silencieuse" — Simplice KOUAMÉ, Président LFA-CI · Édition Définitive Mars 2026 · ~50 pages · '+fmtVal+'<br><em style="color:#1A7A3C;font-size:.75rem">Formule : '+lbl+'</em></td><td>1</td><td>'+prix.toLocaleString('fr-FR')+'</td><td>'+prix.toLocaleString('fr-FR')+'</td></tr>';
+  if(document.getElementById('chk1')&&document.getElementById('chk1').checked) h+='<tr><td>Newsletter Stratégique LFA-CI (12 mois)</td><td>1</td><td>Offert</td><td>0</td></tr>';
+  h+='</tbody></table>';
+  h+='<div class="dtot-wrap"><div class="dtot"><div class="dtr"><span>Sous-total HT</span><span>'+prix.toLocaleString('fr-FR')+' FCFA</span></div><div class="dtr"><span>TVA (0%)</span><span>0 FCFA</span></div><div class="dtr"><span>TOTAL TTC</span><span>'+prix.toLocaleString('fr-FR')+' FCFA</span></div></div></div>';
+  h+='<div class="doc-qr"><img src="'+WAVE_QR+'" alt="QR Wave"><div class="dqi"><h4>Paiement par Wave Business</h4><p>Scannez le QR Code ou payez au :<br><span class="wnum">+225 07 67 81 43 33</span><br>Bénéficiaire : <strong>VoteConnect Formation</strong><br>Montant exact : <strong>'+prix.toLocaleString('fr-FR')+' FCFA</strong><br>Référence : <strong>'+num+'</strong></p></div></div>';
+  h+='<div class="doc-ft"><p>Ce document est émis par <strong>VoteConnect SARL</strong> — Financement Politique et Accompagnement Electoral.<br>RCCM : CI-ABJ-03-2025-B12-03666 | Compte Contribuable : 2504848 N<br>Conditions : paiement à la commande — livraison numérique sous 15 min — tout document livré est non remboursable.</p><div class="dstamp">VoteConnect · Certifié</div></div>';
+  document.getElementById('docSheet').innerHTML=h;
+  document.getElementById('docModal').style.display='flex';
+}
+function closeDocModal(e){
+  if(!e||e.target===document.getElementById('docModal')) document.getElementById('docModal').style.display='none';
+}
+</script>
+</body>
+</html>
