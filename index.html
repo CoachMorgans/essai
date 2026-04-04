@@ -1212,6 +1212,23 @@ function verifierCode(){
     document.getElementById('codeInputs').style.opacity='.4';
     document.getElementById('btnVerifCode').style.display='none';
     document.getElementById('dlBtnWrap').style.display='block';
+    // ── Confirmer le paiement dans CF-DB v3.1 ──
+    try{
+      var wa=document.getElementById('dlWa')?document.getElementById('dlWa').value.trim():'';
+      var telNet=(wa||'').replace(/\+/g,'00').replace(/\s/g,'');
+      fetch(GS_URL,{
+        method:'POST',
+        mode:'no-cors',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          route             :'bon_commande',
+          id_essai          :_refCmd||'',
+          telephone         :telNet,
+          statut_paiement   :'Confirmé',
+          boutons_actives   :'TRUE'
+        })
+      }).catch(function(){});
+    }catch(e){}
   } else {
     document.getElementById('codeErrMsg').style.display='block';
     document.getElementById('codeErrMsg').textContent='❌ Code incorrect. Vérifiez auprès de VoteConnect et réessayez.';
@@ -1221,6 +1238,23 @@ function verifierCode(){
 }
 
 function handleDownload(){
+  // Tracer le téléchargement dans CF-DB v3.1
+  try{
+    var nom=document.getElementById('dlNom')?document.getElementById('dlNom').value.trim():'';
+    var wa=document.getElementById('dlWa')?document.getElementById('dlWa').value.trim():'';
+    var telNet=(wa||'').replace(/\+/g,'00').replace(/\s/g,'');
+    fetch(GS_URL,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        route      :'telechargement_essai',
+        id_essai   :_refCmd||'',
+        telephone  :telNet,
+        nom_complet:nom
+      })
+    }).catch(function(){});
+  }catch(e){}
   setTimeout(function(){
     _downloaded=true;
     var w=document.getElementById('dlBtnWrap');
