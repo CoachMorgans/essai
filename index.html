@@ -1084,20 +1084,46 @@ function toggleFloat(){document.getElementById('floatPanel').classList.toggle('o
 // ── ENREGISTREMENT CF-DB v3.1 ──
 function enregistrerCFDB(data){
   try{
-    var payload={
-      action:'enregistrerPaiementEssai',
-      source:'LP_ESSAI',
-      nom:data.nom,
-      whatsapp:data.wa,
-      ville:data.ville,
-      pays:data.pays,
-      formule:data.formule,
-      montant:data.prix,
-      reference:data.ref,
-      newsletter:data.newsletter,
-      reseau509:data.reseau509,
-      timestamp:new Date().toISOString()
+    // Extraire prénom/nom depuis le champ "nom" complet
+    var parts=(data.nom||'').trim().split(' ');
+    var prenom=parts[0]||'';
+    var nom=parts.slice(1).join(' ')||prenom;
+
+    // Mapper formule → pack_essai FCFA
+    var packMap={
+      'Sympathisant NGD':'2500',
+      'Adhérent Statutaire NGD':'5000',
+      'Cadre Actif NGD & Candidat Colistier LFA-CI Municipal/Régional 2028':'10000'
     };
+    var pack=packMap[data.formule]||String(data.prix||2500);
+
+    // Mapper formule → profil_acheteur
+    var profilMap={
+      'Sympathisant NGD':'sympathisant',
+      'Adhérent Statutaire NGD':'adherent',
+      'Cadre Actif NGD & Candidat Colistier LFA-CI Municipal/Régional 2028':'cadre_colistier'
+    };
+    var profil=profilMap[data.formule]||'sympathisant';
+
+    // Nettoyer le téléphone — remplacer + par 00 pour éviter la coupure URL
+    var telNet=(data.wa||'').replace(/\+/g,'00').replace(/\s/g,'');
+
+    var payload={
+      route            : 'paiement_essai',
+      prenom           : prenom,
+      nom              : nom,
+      telephone        : telNet,
+      profil_acheteur  : profil,
+      pack_essai       : pack,
+      montant          : pack,
+      ref_wave         : data.ref||'',
+      statut_paiement  : 'En_Attente',
+      id_enreg         : '',
+      notes            : 'SOURCE=LP_ESSAI · Ville='+data.ville+' · Pays='+data.pays+
+                         ' · Newsletter='+(data.newsletter?'Oui':'Non')+
+                         ' · Reseau509='+(data.reseau509?'Oui':'Non')
+    };
+
     fetch(GS_URL,{
       method:'POST',
       mode:'no-cors',
