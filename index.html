@@ -668,7 +668,7 @@ var WAVE_MERCHANT='https://pay.wave.com/m/M_ci_QlW5ke-hYGbA/c/ci/';
 var formules={
   1:{label:'Sympathisant NGD',prix:2500,emoji:'🤝',tc:'var(--vc)'},
   2:{label:'Adhérent Statutaire NGD',prix:5000,emoji:'🌍',tc:'var(--oc)'},
-  3:{label:'Cadre Actif NGD & Candidat Colistier LFA-CI Municipal/Régional 2028',prix:10000,emoji:'🏛️',tc:'var(--orc)'}
+  3:{label:'Cadre Actif NGD & Colistier LFA-CI 2028',prix:10000,emoji:'🏛️',tc:'var(--orc)'}
 };
 var _formule={num:0,label:'',prix:0,emoji:''};
 var _codeAdmin='';
@@ -921,8 +921,8 @@ function enregistrerCFDB(data){
     var parts=(data.nom||'').trim().split(' ');
     var prenom=parts[0]||'';
     var nom=parts.slice(1).join(' ')||prenom;
-    var packMap={'Sympathisant NGD':'2500','Adhérent Statutaire NGD':'5000','Cadre Actif NGD & Candidat Colistier LFA-CI Municipal/Régional 2028':'10000'};
-    var profilMap={'Sympathisant NGD':'sympathisant','Adhérent Statutaire NGD':'adherent','Cadre Actif NGD & Candidat Colistier LFA-CI Municipal/Régional 2028':'cadre_colistier'};
+    var packMap={'Sympathisant NGD':'2500','Adhérent Statutaire NGD':'5000','Cadre Actif NGD & Colistier LFA-CI 2028':'10000'};
+    var profilMap={'Sympathisant NGD':'sympathisant','Adhérent Statutaire NGD':'adherent','Cadre Actif NGD & Colistier LFA-CI 2028':'cadre_colistier'};
     var pack=packMap[data.formule]||String(data.prix||2500);
     var profil=profilMap[data.formule]||'sympathisant';
     var telNet=(data.wa||'').replace(/\+/g,'00').replace(/\s/g,'');
@@ -971,7 +971,7 @@ function showDlOk(){
     'Client : '+nom+'\n'+
     'WhatsApp client : '+wa+'\n'+
     'Ville/Pays : '+ville+' / '+pays+'\n'+
-    ssth>35?lbl.slice(0,35)+'…':lbl)+'\n'+
+    ssth>35?lbl+'…':lbl)+'\n'+
     'Montant : '+p.toLocaleString('fr-FR')+' FCFA\n'+
     'Newsletter : '+(nl?'Oui':'Non')+'\n'+
     'Réseau 509 : '+(r5?'Oui':'Non')+'\n\n'+
